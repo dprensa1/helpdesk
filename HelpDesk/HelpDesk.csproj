@@ -159,19 +159,29 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CuentasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601292220540_CargandoModelos.cs" />
+    <Compile Include="Migrations\201601292220540_CargandoModelos.Designer.cs">
+      <DependentUpon>201601292220540_CargandoModelos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Departamento.cs" />
     <Compile Include="Models\Enum\Estado.cs" />
+    <Compile Include="Models\Enum\Prioridad.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Solicitud.cs" />
-    <Compile Include="Models\SolitudDetalle.cs" />
     <Compile Include="Models\Solucion.cs" />
-    <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Models\Enum\Departamento.cs" />
+    <Compile Include="Models\Tecnico.cs" />
+    <Compile Include="Models\IPersona.cs" />
     <Compile Include="Models\HDContext.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\UsuarioProveedorIdentidad.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -224,10 +234,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Views\Cuentas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201601292220540_CargandoModelos.resx">
+      <DependentUpon>201601292220540_CargandoModelos.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

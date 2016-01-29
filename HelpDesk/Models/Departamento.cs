@@ -1,14 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HelpDesk.Models
 {
-    [Table("Soluciones")]
-    public class Solucion
+    [Table("Departamentos")]
+    public class Departamento
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int SolucionId { get; set; }
+        public int DepartamentoId { get; set; }
 
         [NotMapped]
         private string _nombre;
@@ -22,16 +23,8 @@ namespace HelpDesk.Models
             set { _nombre = value; }
         }
 
-        [NotMapped]
-        private string _detalle;
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
-        [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
-        [StringLength(64, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 64 caracteres.")]
-        [DataType(DataType.Text)]
-        public string Detalle
-        {
-            get { return _detalle; }
-            set { _detalle = value; }
-        }
+        public virtual ICollection<Cliente> Clientes { get; set; }
+
+        public virtual ICollection<Tecnico> Tecnico { get; set; }
     }
 }

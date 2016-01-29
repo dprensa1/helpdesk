@@ -66,3 +66,11 @@ D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\Microsoft.Owin.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\Microsoft.Owin.Security.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\Microsoft.Owin.Security.Cookies.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\Microsoft.Owin.Security.OAuth.xml
+D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\EntityFramework.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\EntityFramework.SqlServer.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\EntityFramework.xml
+D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\EntityFramework.SqlServer.xml
+D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\obj\Debug\HelpDesk.Migrations.CargandoModelos.resources
+D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\obj\Debug\HelpDesk.csproj.GenerateResource.Cache
