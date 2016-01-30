@@ -3,7 +3,7 @@ namespace HelpDesk.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CargandoModelos : DbMigration
+    public partial class CargarModelo : DbMigration
     {
         public override void Up()
         {
@@ -13,8 +13,20 @@ namespace HelpDesk.Migrations
                     {
                         CategoriaId = c.Int(nullable: false, identity: true),
                         Nombre = c.String(nullable: false, maxLength: 16),
+                        DepartamentoId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.CategoriaId);
+                .PrimaryKey(t => t.CategoriaId)
+                .ForeignKey("dbo.Departamentos", t => t.DepartamentoId, cascadeDelete: true)
+                .Index(t => t.DepartamentoId);
+            
+            CreateTable(
+                "dbo.Departamentos",
+                c => new
+                    {
+                        DepartamentoId = c.Int(nullable: false, identity: true),
+                        Nombre = c.String(nullable: false, maxLength: 16),
+                    })
+                .PrimaryKey(t => t.DepartamentoId);
             
             CreateTable(
                 "dbo.Clientes",
@@ -34,13 +46,15 @@ namespace HelpDesk.Migrations
                 .Index(t => t.DepartamentoId);
             
             CreateTable(
-                "dbo.Departamentos",
+                "dbo.Usuarios",
                 c => new
                     {
-                        DepartamentoId = c.Int(nullable: false, identity: true),
-                        Nombre = c.String(nullable: false, maxLength: 16),
+                        UsuarioId = c.Int(nullable: false, identity: true),
+                        User = c.String(nullable: false, maxLength: 8),
+                        Clave = c.String(nullable: false, maxLength: 16),
                     })
-                .PrimaryKey(t => t.DepartamentoId);
+                .PrimaryKey(t => t.UsuarioId)
+                .Index(t => t.User, unique: true, name: "UserIDX");
             
             CreateTable(
                 "dbo.Tecnicos",
@@ -71,17 +85,6 @@ namespace HelpDesk.Migrations
                         Descripcion = c.String(nullable: false, maxLength: 64),
                     })
                 .PrimaryKey(t => t.RolId);
-            
-            CreateTable(
-                "dbo.Usuarios",
-                c => new
-                    {
-                        UsuarioId = c.Int(nullable: false, identity: true),
-                        User = c.String(nullable: false, maxLength: 8),
-                        Clave = c.String(nullable: false, maxLength: 16),
-                    })
-                .PrimaryKey(t => t.UsuarioId)
-                .Index(t => t.User, unique: true, name: "UserIDX");
             
             CreateTable(
                 "dbo.Solicitudes",
@@ -126,28 +129,30 @@ namespace HelpDesk.Migrations
             DropForeignKey("dbo.Solicitudes", "SolucionId", "dbo.Soluciones");
             DropForeignKey("dbo.Solicitudes", "ClienteId", "dbo.Clientes");
             DropForeignKey("dbo.Solicitudes", "CategoriaId", "dbo.Categorias");
-            DropForeignKey("dbo.Clientes", "UsuarioId", "dbo.Usuarios");
             DropForeignKey("dbo.Tecnicos", "UsuarioId", "dbo.Usuarios");
             DropForeignKey("dbo.Tecnicos", "RolId", "dbo.Roles");
             DropForeignKey("dbo.Tecnicos", "DepartamentoId", "dbo.Departamentos");
+            DropForeignKey("dbo.Clientes", "UsuarioId", "dbo.Usuarios");
             DropForeignKey("dbo.Clientes", "DepartamentoId", "dbo.Departamentos");
+            DropForeignKey("dbo.Categorias", "DepartamentoId", "dbo.Departamentos");
             DropIndex("dbo.Solicitudes", new[] { "SolucionId" });
             DropIndex("dbo.Solicitudes", new[] { "TecnicoId" });
             DropIndex("dbo.Solicitudes", new[] { "CategoriaId" });
             DropIndex("dbo.Solicitudes", new[] { "ClienteId" });
-            DropIndex("dbo.Usuarios", "UserIDX");
             DropIndex("dbo.Tecnicos", new[] { "DepartamentoId" });
             DropIndex("dbo.Tecnicos", new[] { "RolId" });
             DropIndex("dbo.Tecnicos", new[] { "UsuarioId" });
+            DropIndex("dbo.Usuarios", "UserIDX");
             DropIndex("dbo.Clientes", new[] { "DepartamentoId" });
             DropIndex("dbo.Clientes", new[] { "UsuarioId" });
+            DropIndex("dbo.Categorias", new[] { "DepartamentoId" });
             DropTable("dbo.Soluciones");
             DropTable("dbo.Solicitudes");
-            DropTable("dbo.Usuarios");
             DropTable("dbo.Roles");
             DropTable("dbo.Tecnicos");
-            DropTable("dbo.Departamentos");
+            DropTable("dbo.Usuarios");
             DropTable("dbo.Clientes");
+            DropTable("dbo.Departamentos");
             DropTable("dbo.Categorias");
         }
     }

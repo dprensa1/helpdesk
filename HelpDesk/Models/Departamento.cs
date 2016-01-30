@@ -23,8 +23,10 @@ namespace HelpDesk.Models
             set { _nombre = value; }
         }
 
+        public virtual ICollection<Categoria> Categorias { get; set; }
+
         public virtual ICollection<Cliente> Clientes { get; set; }
 
-        public virtual ICollection<Tecnico> Tecnico { get; set; }
+        public virtual ICollection<Tecnico> Tecnicos { get; set; }
     }
 }

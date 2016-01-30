@@ -7,13 +7,13 @@ namespace HelpDesk.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CargandoModelos : IMigrationMetadata
+    public sealed partial class CargarModelo : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CargandoModelos));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CargarModelo));
         
         string IMigrationMetadata.Id
         {
-            get { return "201601292220540_CargandoModelos"; }
+            get { return "201601302248119_CargarModelo"; }
         }
         
         string IMigrationMetadata.Source

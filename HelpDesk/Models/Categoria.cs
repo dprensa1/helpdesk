@@ -21,5 +21,11 @@ namespace HelpDesk.Models
             get { return _nombre; }
             set { _nombre = value; }
         }
+
+        [Required(ErrorMessage = "Requerido.", AllowEmptyStrings = false)]
+        public int DepartamentoId { get; set; }
+
+        [ForeignKey("DepartamentoId")]
+        public virtual Departamento Departamento { get; set; }
     }
 }

@@ -163,9 +163,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201601292220540_CargandoModelos.cs" />
-    <Compile Include="Migrations\201601292220540_CargandoModelos.Designer.cs">
-      <DependentUpon>201601292220540_CargandoModelos.cs</DependentUpon>
+    <Compile Include="Migrations\201601302248119_CargarModelo.cs" />
+    <Compile Include="Migrations\201601302248119_CargarModelo.Designer.cs">
+      <DependentUpon>201601302248119_CargarModelo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -177,7 +177,6 @@
     <Compile Include="Models\Solicitud.cs" />
     <Compile Include="Models\Solucion.cs" />
     <Compile Include="Models\Tecnico.cs" />
-    <Compile Include="Models\IPersona.cs" />
     <Compile Include="Models\HDContext.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -240,8 +239,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601292220540_CargandoModelos.resx">
-      <DependentUpon>201601292220540_CargandoModelos.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601302248119_CargarModelo.resx">
+      <DependentUpon>201601302248119_CargarModelo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
