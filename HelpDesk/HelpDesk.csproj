@@ -171,12 +171,14 @@
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Departamento.cs" />
+    <Compile Include="Models\Documento.cs" />
     <Compile Include="Models\Enum\Estado.cs" />
     <Compile Include="Models\Enum\Prioridad.cs" />
     <Compile Include="Models\IPersona.cs" />
     <Compile Include="Models\Repositorios\CategoriaRepositorio.cs" />
     <Compile Include="Models\Repositorios\ClienteRepositorio.cs" />
     <Compile Include="Models\Repositorios\DepartamentoRepositorio.cs" />
+    <Compile Include="Models\Repositorios\DocumentoRepositorio.cs" />
     <Compile Include="Models\Repositorios\IEntidad.cs" />
     <Compile Include="Models\Repositorios\IRepositorio.cs" />
     <Compile Include="Models\Repositorios\RolRepositorio.cs" />

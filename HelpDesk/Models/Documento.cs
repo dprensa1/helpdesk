@@ -6,44 +6,43 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HelpDesk.Models
 {
-    [Table("Tecnicos")]
-    public class Tecnico : IEntidad, IPersona
+    public class Documento: IEntidad
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int TecnicoId { get; set; }
+        public int DocumentoId { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]
+        public int SolicitudId { get; set; }
+
+        [ForeignKey("SolicitudId")]
+        public virtual Solicitud Solicitud { get; set; }
 
         [NotMapped]
-        private string _nombre;
+        private string _ubicacion;
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
-        [StringLength(16, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 16 caracteres.")]
+        [StringLength(255, MinimumLength = 2, ErrorMessage = "Deber tener entre 2 y 255 caracteres.")]
         [DataType(DataType.Text)]
-        public string Nombre
+        public string Ubicacion
         {
-            get { return _nombre; }
-            set { _nombre = value; }
+            get { return _ubicacion; }
+            set { _ubicacion = value; }
         }
 
         [NotMapped]
-        private string _apellido;
+        private string _extension;
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
-        [StringLength(16, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 16 caracteres.")]
+        [StringLength(8, MinimumLength = 2, ErrorMessage = "Deber tener entre 2 y 8 caracteres.")]
         [DataType(DataType.Text)]
-        public string Apellido
+        public string Extension
         {
-            get { return _apellido; }
-            set { _apellido = value; }
+            get { return _extension; }
+            set { _extension = value; }
         }
-
-        [Required(ErrorMessage = "Requerida.", AllowEmptyStrings = false)]
-        public int AreaId { get; set; }
-
-        [ForeignKey("AreaId")]
-        public virtual Departamento Area { get; set; }
-
-        public bool Estado { get; set; }
 
         [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]
         [Column(TypeName = "Date")]

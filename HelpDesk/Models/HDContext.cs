@@ -10,6 +10,7 @@ namespace HelpDesk.Models
         public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Solicitud> Solicitudes { get; set; }
+        public DbSet<Documento> Documentos { get; set; }
         public DbSet<Solucion> Soluciones { get; set; }
         public DbSet<Tecnico> Tecnicos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }

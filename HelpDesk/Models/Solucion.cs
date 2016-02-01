@@ -1,4 +1,6 @@
 ﻿using HelpDesk.Models.Repositorios;
+using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -34,5 +36,10 @@ namespace HelpDesk.Models
             get { return _detalle; }
             set { _detalle = value; }
         }
+
+        [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]
+        [Column(TypeName = "Date")]
+        [DefaultValue("2016/01/01")]
+        public DateTime FechaCreacion { get; set; }
     }
 }

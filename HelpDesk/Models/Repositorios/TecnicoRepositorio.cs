@@ -7,7 +7,7 @@ namespace HelpDesk.Models.Repositorios
 {
     public class TecnicoRepositorio : IRepositorio<Tecnico>
     {
-        HDContext _TecnicoContext;
+        HDContext _TecnicoContext = new HDContext();
 
         public IEnumerable<Tecnico> List
         {

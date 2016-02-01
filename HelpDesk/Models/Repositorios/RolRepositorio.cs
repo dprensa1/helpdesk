@@ -7,7 +7,7 @@ namespace HelpDesk.Models.Repositorios
 {
     public class RolRepositorio
     {
-        HDContext _RolContext;
+        HDContext _RolContext = new HDContext();
 
         public IEnumerable<Rol> List
         {

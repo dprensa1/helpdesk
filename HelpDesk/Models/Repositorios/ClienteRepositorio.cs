@@ -7,7 +7,7 @@ namespace HelpDesk.Models.Repositorios
 {
     public class ClienteRepositorio
     {
-        HDContext _ClienteContext;
+        HDContext _ClienteContext = new HDContext();
 
         public IEnumerable<Cliente> List
         {

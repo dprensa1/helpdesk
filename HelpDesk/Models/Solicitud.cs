@@ -1,6 +1,7 @@
 ﻿using HelpDesk.Models.Enum;
 using HelpDesk.Models.Repositorios;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -62,6 +63,8 @@ namespace HelpDesk.Models
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         public int TecnicoId { get; set; }
+        
+        public virtual ICollection<Documento> Documentos { get; set; }
 
         [ForeignKey("TecnicoId")]
         public virtual Tecnico Tecnico { get; set; }
