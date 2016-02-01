@@ -13,8 +13,6 @@ namespace HelpDesk.Models
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]
         public int SolicitudId { get; set; }
-
-        [ForeignKey("SolicitudId")]
         public virtual Solicitud Solicitud { get; set; }
         
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]

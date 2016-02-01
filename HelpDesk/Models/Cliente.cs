@@ -24,8 +24,6 @@ namespace HelpDesk.Models
 
         [Required(ErrorMessage = "Requerido.", AllowEmptyStrings = false)]
         public int DepartamentoId { get; set; }
-
-        [ForeignKey("DepartamentoId")]
         public virtual Departamento Departamento { get; set; }
 
         public bool Estado { get; set; }

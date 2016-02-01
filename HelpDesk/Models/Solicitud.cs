@@ -27,8 +27,6 @@ namespace HelpDesk.Models
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         public int ClienteId { get; set; }
-
-        [ForeignKey("ClienteId")]
         public virtual Cliente Cliente { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
@@ -43,8 +41,6 @@ namespace HelpDesk.Models
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]
         public int CategoriaId { get; set; }
-
-        [ForeignKey("CategoriaId")]
         public virtual Categoria Categoria { get; set; }
 
         public virtual Tecnico Tecnico { get; set; }
@@ -53,8 +49,6 @@ namespace HelpDesk.Models
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]
         public int SolucionId { get; set; }
-
-        [ForeignKey("SolucionId")]
         public virtual Solucion Solucion { get; set; }
 
         [NotMapped]
