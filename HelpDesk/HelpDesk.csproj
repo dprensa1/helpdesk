@@ -159,13 +159,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CuentasController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201601302248119_CargarModelo.cs" />
-    <Compile Include="Migrations\201601302248119_CargarModelo.Designer.cs">
-      <DependentUpon>201601302248119_CargarModelo.cs</DependentUpon>
+    <Compile Include="Migrations\201601302340157_CargarModelo.cs" />
+    <Compile Include="Migrations\201601302340157_CargarModelo.Designer.cs">
+      <DependentUpon>201601302340157_CargarModelo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -173,6 +173,17 @@
     <Compile Include="Models\Departamento.cs" />
     <Compile Include="Models\Enum\Estado.cs" />
     <Compile Include="Models\Enum\Prioridad.cs" />
+    <Compile Include="Models\IPersona.cs" />
+    <Compile Include="Models\Repositorios\CategoriaRepositorio.cs" />
+    <Compile Include="Models\Repositorios\ClienteRepositorio.cs" />
+    <Compile Include="Models\Repositorios\DepartamentoRepositorio.cs" />
+    <Compile Include="Models\Repositorios\IEntidad.cs" />
+    <Compile Include="Models\Repositorios\IRepositorio.cs" />
+    <Compile Include="Models\Repositorios\RolRepositorio.cs" />
+    <Compile Include="Models\Repositorios\SolicitudRepositorio.cs" />
+    <Compile Include="Models\Repositorios\SolucionRepositorio.cs" />
+    <Compile Include="Models\Repositorios\TecnicoRepositorio.cs" />
+    <Compile Include="Models\Repositorios\UsuarioRepositorio.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Solicitud.cs" />
     <Compile Include="Models\Solucion.cs" />
@@ -233,14 +244,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Cuentas\" />
+    <Folder Include="Views\Usuarios\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601302248119_CargarModelo.resx">
-      <DependentUpon>201601302248119_CargarModelo.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601302340157_CargarModelo.resx">
+      <DependentUpon>201601302340157_CargarModelo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

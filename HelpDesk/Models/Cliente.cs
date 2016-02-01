@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using HelpDesk.Models.Repositorios;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HelpDesk.Models
 {
     [Table("Clientes")]
-    public class Cliente
+    public class Cliente : IEntidad, IPersona
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -34,17 +35,11 @@ namespace HelpDesk.Models
             set { _apellido = value; }
         }
 
-        [Required(ErrorMessage = "Requerido.", AllowEmptyStrings = false)]
-        public int UsuarioId { get; set; }
+        [Required(ErrorMessage = "Requerida.", AllowEmptyStrings = false)]
+        public int AreaId { get; set; }
 
-        [ForeignKey("UsuarioId")]
-        public virtual Usuario Usuario { get; set; }
-
-        [Required(ErrorMessage = "Requerido.", AllowEmptyStrings = false)]
-        public int DepartamentoId { get; set; }
-
-        [ForeignKey("DepartamentoId")]
-        public virtual Departamento Departamento { get; set; }
+        [ForeignKey("AreaId")]
+        public virtual Departamento Area { get; set; }
 
         public bool Estado { get; set; }
     }

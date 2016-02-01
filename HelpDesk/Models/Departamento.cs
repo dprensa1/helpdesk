@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using HelpDesk.Models.Repositorios;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HelpDesk.Models
 {
     [Table("Departamentos")]
-    public class Departamento
+    public class Departamento : IEntidad
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

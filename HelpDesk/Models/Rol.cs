@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
+using HelpDesk.Models.Repositorios;
 
 namespace HelpDesk.Models
 {
     [Table("Roles")]
-    public class Rol
+    public class Rol : IEntidad
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -35,6 +36,6 @@ namespace HelpDesk.Models
             set { _descripcion = value; }
         }
 
-        public virtual ICollection<Tecnico> Tecnicos { get; set; }
+        public virtual ICollection<Usuario> Usuarios { get; set; }
     }
 }

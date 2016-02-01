@@ -1,13 +1,13 @@
 ﻿using HelpDesk.Models.Enum;
+using HelpDesk.Models.Repositorios;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HelpDesk.Models
 {
     [Table("Solicitudes")]
-    public class Solicitud
+    public class Solicitud : IEntidad
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

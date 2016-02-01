@@ -2,7 +2,7 @@
 
 namespace HelpDesk.Controllers
 {
-    public class CuentasController : Controller
+    public class UsuariosController : Controller
     {
         // GET: Login
         public ActionResult Login()

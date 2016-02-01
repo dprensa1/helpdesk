@@ -13,7 +13,7 @@ namespace HelpDesk.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201601302248119_CargarModelo"; }
+            get { return "201601302340157_CargarModelo"; }
         }
         
         string IMigrationMetadata.Source

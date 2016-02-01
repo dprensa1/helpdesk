@@ -1,18 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using HelpDesk.Models.Repositorios;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace HelpDesk.Models
 {
     [Table("Usuarios")]
-    public class Usuario
+    public class Usuario : IEntidad
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UsuarioId { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
+        public int TecnicoId { get; set; }
+
+        [ForeignKey("TecnicoId")]
+        public virtual Tecnico Tecnico { get; set; }
 
         [NotMapped]
         private string _User { get; set; }
@@ -36,5 +39,13 @@ namespace HelpDesk.Models
             get { return _clave; }
             set { _clave = value; }
         }
+
+        [Required(ErrorMessage = "Requerido.", AllowEmptyStrings = false)]
+        public int RolId { get; set; }
+
+        [ForeignKey("RolId")]
+        public virtual Rol Rol { get; set; }
+
+        public bool Estado { get; set; }
     }
 }
