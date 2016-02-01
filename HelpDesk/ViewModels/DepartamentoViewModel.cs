@@ -20,6 +20,6 @@ namespace HelpDesk.ViewModels
 
         public virtual ICollection<Cliente> Clientes { get; set; }
 
-        public virtual ICollection<Tecnico> Tecnicos { get; set; }
+        public virtual ICollection<Usuario> Tecnicos { get; set; }
     }
 }

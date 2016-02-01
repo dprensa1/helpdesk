@@ -29,9 +29,21 @@ namespace HelpDesk.Models.Repositorios
             _UsuarioContext.SaveChanges();
         }
 
-        public Usuario FindById(int Id)
+        public Usuario FindById(int id)
         {
-            var resultado = (from r in _UsuarioContext.Usuarios where r.UsuarioId == Id select r).FirstOrDefault();
+            var resultado = _UsuarioContext.Usuarios.Find(id);
+
+            return resultado;
+            //throw new NotImplementedException();
+        }
+
+        public Usuario FindByUserName(string _UserName)
+        {
+            var resultado =
+                _UsuarioContext.Usuarios
+                .FirstOrDefault(
+                    u => u.UserName.Equals(_UserName)
+                );
 
             return resultado;
             //throw new NotImplementedException();
@@ -41,6 +53,17 @@ namespace HelpDesk.Models.Repositorios
         {
             _UsuarioContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             _UsuarioContext.SaveChanges();
+        }
+
+        public Usuario ValidateUser(string user, string pass)
+        {
+            //Trabajar con el hash para el pass
+            var Usuario = _UsuarioContext.Usuarios
+                .Where(
+                    u => u.UserName == user && u.Clave == pass
+                    ).FirstOrDefault();
+
+            return Usuario;
         }
     }
 }

@@ -43,7 +43,8 @@ namespace HelpDesk.Models
         public int CategoriaId { get; set; }
         public virtual Categoria Categoria { get; set; }
 
-        public virtual Tecnico Tecnico { get; set; }
+        public int UsuarioId { get; set; }
+        public virtual Usuario Usuario { get; set; }
 
         public virtual ICollection<Documento> Documentos { get; set; }
 

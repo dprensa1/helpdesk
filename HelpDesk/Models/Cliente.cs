@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,8 +24,7 @@ namespace HelpDesk.Models
         public string Apellido { get; set; }
 
         [Required(ErrorMessage = "Requerido.", AllowEmptyStrings = false)]
-        public int DepartamentoId { get; set; }
-        public virtual Departamento Departamento { get; set; }
+        public virtual ICollection<Departamento> Departamentos { get; set; }
 
         public bool Estado { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,10 +7,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HelpDesk.Models
 {
     [Table("Usuarios")]
-    public class Usuario
+    public class Usuario : IPersona
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UsuarioId { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
+        [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
+        [StringLength(16, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 16 caracteres.")]
+        public string Nombre { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
+        [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
+        [StringLength(16, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 16 caracteres.")]
+        public string Apellido { get; set; }
 
         [Key]
         [Required(ErrorMessage = "Requerido.", AllowEmptyStrings = false)]
@@ -21,8 +32,10 @@ namespace HelpDesk.Models
         public string Clave { get; set; }
 
         [Required(ErrorMessage = "Requerido.", AllowEmptyStrings = false)]
-        public int RolId { get; set; }
-        public virtual Rol Rol { get; set; }
+        public virtual ICollection<Rol> Roles { get; set; }
+
+        [Required(ErrorMessage = "Requerido.", AllowEmptyStrings = false)]
+        public virtual ICollection<Departamento> Departamentos { get; set; }
 
         public bool Estado { get; set; }
 
@@ -36,5 +49,6 @@ namespace HelpDesk.Models
             get { return _fechaCreacion; }
             set { _fechaCreacion = value; }
         }
+
     }
 }

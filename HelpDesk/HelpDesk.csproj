@@ -166,6 +166,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\CustomPrincipalSerializeModel.cs" />
     <Compile Include="Models\Departamento.cs" />
     <Compile Include="Models\Documento.cs" />
     <Compile Include="Models\Enum\Estado.cs" />
@@ -179,16 +180,15 @@
     <Compile Include="Models\Repositorios\RolRepositorio.cs" />
     <Compile Include="Models\Repositorios\SolicitudRepositorio.cs" />
     <Compile Include="Models\Repositorios\SolucionRepositorio.cs" />
-    <Compile Include="Models\Repositorios\TecnicoRepositorio.cs" />
     <Compile Include="Models\Repositorios\UsuarioRepositorio.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Solicitud.cs" />
     <Compile Include="Models\Solucion.cs" />
-    <Compile Include="Models\Tecnico.cs" />
-    <Compile Include="Models\HDContext.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\HDContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\UsuarioProveedorIdentidad.cs" />
+    <Compile Include="Security\MyAuthAttribute.cs" />
+    <Compile Include="Security\PrincipalCustom.cs" />
     <Compile Include="ViewModels\CategoriaViewModel.cs" />
     <Compile Include="ViewModels\ClienteViewModel.cs" />
     <Compile Include="ViewModels\DepartamentoViewModel.cs" />

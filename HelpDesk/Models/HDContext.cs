@@ -12,9 +12,8 @@ namespace HelpDesk.Models
         public DbSet<Solicitud> Solicitudes { get; set; }
         public DbSet<Documento> Documentos { get; set; }
         public DbSet<Solucion> Soluciones { get; set; }
-        public DbSet<Tecnico> Tecnicos { get; set; }
-        public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
 
         public HDContext() //: base("HelpDesk")
         {
@@ -27,6 +26,38 @@ namespace HelpDesk.Models
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            
+            modelBuilder.Entity<Usuario>()
+                .HasMany(r => r.Roles)
+                .WithMany(u => u.Usuarios)
+                .Map(m =>
+                {
+                    m.ToTable("UsuariosRoles");
+                    m.MapLeftKey("UsuarioId");
+                    m.MapRightKey("RolId");
+                });
+
+            modelBuilder.Entity<Usuario>()
+                .HasMany(r => r.Departamentos)
+                .WithMany(u => u.Usuarios)
+                .Map(m =>
+                {
+                    m.ToTable("UsuariosDepartamentos");
+                    m.MapLeftKey("UsuarioId");
+                    m.MapRightKey("DepartamentoId");
+                });
+
+            modelBuilder.Entity<Cliente>()
+                .HasMany(d => d.Departamentos)
+                .WithMany(c => c.Clientes)
+                .Map(m =>
+                {
+                    m.ToTable("ClientesDepartamentos");
+                    m.MapLeftKey("ClienteId");
+                    m.MapRightKey("DepartamentoId");
+                });
+
+
 
             /*
             modelBuilder.Entity<IdentityUser>()
