@@ -14,7 +14,7 @@ namespace HelpDesk.Security
 
         public UsuarioProveedorIdentidad(Usuario usuario)
         {
-            User = usuario.User;
+            //User = usuario.UserName;
             //Nombre = usuario.Empleado.Nombre;
             //Cedula = usuario.Empleado.Cedula;
         }

@@ -16,17 +16,16 @@ namespace HelpDesk.Models
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
 
-        public HDContext() : base("HelpDesk")
+        public HDContext() //: base("HelpDesk")
         {
-            //Database.SetInitializer<Lyra>(new DropCreateDatabaseAlways<Lyra>());
-            //Database.SetInitializer<Lyra>(new DropCreateDatabaseIfModelChanges<Lyra>());
-
-            Database.SetInitializer<HDContext>(new CreateDatabaseIfNotExists<HDContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<HDContext>());
+            //Database.SetInitializer<HDContext>(new DropCreateDatabaseIfModelChanges<HDContext>());
+            //Database.SetInitializer<HDContext>(new CreateDatabaseIfNotExists<HDContext>());
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            /*
+
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             /*
@@ -34,7 +33,6 @@ namespace HelpDesk.Models
                 .ToTable("Usuarios");
             modelBuilder.Entity<ApplicationUser>()
                 .ToTable("Usuarios");
-            
             */
         }
     }

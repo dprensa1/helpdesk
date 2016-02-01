@@ -34,6 +34,7 @@ namespace HelpDesk.Models.Repositorios
             var resultado = (from r in _UsuarioContext.Usuarios where r.UsuarioId == Id select r).FirstOrDefault();
 
             return resultado;
+            //throw new NotImplementedException();
         }
 
         public void Update(Usuario entity)

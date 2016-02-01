@@ -72,5 +72,3 @@ D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\Microsoft.AspNet.I
 D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\EntityFramework.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\EntityFramework.SqlServer.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\obj\Debug\HelpDesk.Migrations.CargarModelo.resources
-D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\obj\Debug\HelpDesk.csproj.GenerateResource.Cache
