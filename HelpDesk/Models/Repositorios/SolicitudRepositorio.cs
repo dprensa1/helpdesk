@@ -29,7 +29,7 @@ namespace HelpDesk.Models.Repositorios
             _SolicitudContext.SaveChanges();
         }
 
-        public Solicitud FindById(int? Id)
+        public Solicitud FindById(int Id)
         {
             var resultado = (from r in _SolicitudContext.Solicitudes where r.SolicitudId == Id select r).FirstOrDefault();
 

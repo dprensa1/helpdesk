@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
-using HelpDesk.Models.Repositorios;
 
 namespace HelpDesk.Models
 {
     [Table("Roles")]
-    public class Rol : IEntidad
+    public class Rol
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -17,7 +16,6 @@ namespace HelpDesk.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
         [StringLength(16, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 16 caracteres.")]
-        [DataType(DataType.Text)]
         public string Nombre
         {
             get { return _nombre; }
@@ -26,10 +24,9 @@ namespace HelpDesk.Models
 
         [NotMapped]
         private string _descripcion;
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]
         [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
         [StringLength(64, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 64 caracteres.")]
-        [DataType(DataType.Text)]
         public string Descripcion
         {
             get { return _descripcion; }

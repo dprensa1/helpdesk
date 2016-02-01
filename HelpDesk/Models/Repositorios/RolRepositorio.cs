@@ -27,7 +27,7 @@ namespace HelpDesk.Models.Repositorios
             throw new NotImplementedException();
         }
 
-        public Rol FindById(int? Id)
+        public Rol FindById(int Id)
         {
             var resultado = (from r in _RolContext.Roles where r.RolId == Id select r).FirstOrDefault();
 

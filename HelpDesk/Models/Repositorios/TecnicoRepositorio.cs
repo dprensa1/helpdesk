@@ -29,7 +29,7 @@ namespace HelpDesk.Models.Repositorios
             _TecnicoContext.SaveChanges();
         }
 
-        public Tecnico FindById(int? Id)
+        public Tecnico FindById(int Id)
         {
             var resultado = (from r in _TecnicoContext.Tecnicos where r.TecnicoId == Id select r).FirstOrDefault();
 

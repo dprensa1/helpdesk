@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Data.Entity;
 
 namespace HelpDesk.Models.Repositorios
 {
@@ -29,7 +28,7 @@ namespace HelpDesk.Models.Repositorios
             _CategoriaContext.SaveChanges();
         }
 
-        public Categoria FindById(int? Id)
+        public Categoria FindById(int Id)
         {
             var resultado = (from r in _CategoriaContext.Categorias where r.CategoriaId == Id select r).FirstOrDefault();
 
@@ -38,7 +37,7 @@ namespace HelpDesk.Models.Repositorios
 
         public void Update(Categoria entity)
         {
-            _CategoriaContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            _CategoriaContext.Entry(entity).State = EntityState.Modified;
             _CategoriaContext.SaveChanges();
         }
     }

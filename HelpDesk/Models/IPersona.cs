@@ -4,7 +4,7 @@
     {
         string Nombre { get; set; }
         string Apellido { get; set; }
-        int AreaId { get; set; }
+        int DepartamentoId { get; set; }
         bool Estado { get; set; }
     }
 }

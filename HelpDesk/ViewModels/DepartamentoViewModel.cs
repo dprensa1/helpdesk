@@ -1,19 +1,11 @@
-﻿using System;
+﻿using HelpDesk.Models;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace HelpDesk.Models
+namespace HelpDesk.ViewModels
 {
-    [Table("Departamentos")]
-    public class Departamento
+    public class DepartamentoViewModel
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int DepartamentoId { get; set; }
-
-        [NotMapped]
         private string _nombre;
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
@@ -29,10 +21,5 @@ namespace HelpDesk.Models
         public virtual ICollection<Cliente> Clientes { get; set; }
 
         public virtual ICollection<Tecnico> Tecnicos { get; set; }
-
-        [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]
-        [Column(TypeName = "Date")]
-        [DefaultValue("2016/01/01")]
-        public DateTime FechaCreacion { get; set; }
     }
 }

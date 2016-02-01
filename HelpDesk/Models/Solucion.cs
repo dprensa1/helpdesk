@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HelpDesk.Models
 {
     [Table("Soluciones")]
-    public class Solucion : IEntidad
+    public class Solucion
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -18,7 +18,6 @@ namespace HelpDesk.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
         [StringLength(16, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 16 caracteres.")]
-        [DataType(DataType.Text)]
         public string Nombre
         {
             get { return _nombre; }
@@ -30,7 +29,6 @@ namespace HelpDesk.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
         [StringLength(64, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 64 caracteres.")]
-        [DataType(DataType.Text)]
         public string Detalle
         {
             get { return _detalle; }

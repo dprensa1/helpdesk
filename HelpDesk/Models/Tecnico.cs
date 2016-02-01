@@ -1,5 +1,4 @@
-﻿using HelpDesk.Models.Repositorios;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HelpDesk.Models
 {
     [Table("Tecnicos")]
-    public class Tecnico : IEntidad, IPersona
+    public class Tecnico : IPersona
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -18,7 +17,6 @@ namespace HelpDesk.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
         [StringLength(16, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 16 caracteres.")]
-        [DataType(DataType.Text)]
         public string Nombre
         {
             get { return _nombre; }
@@ -30,18 +28,17 @@ namespace HelpDesk.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
         [StringLength(16, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 16 caracteres.")]
-        [DataType(DataType.Text)]
         public string Apellido
         {
             get { return _apellido; }
             set { _apellido = value; }
         }
 
-        [Required(ErrorMessage = "Requerida.", AllowEmptyStrings = false)]
-        public int AreaId { get; set; }
+        [Required(ErrorMessage = "Requerido.", AllowEmptyStrings = false)]
+        public int DepartamentoId { get; set; }
 
-        [ForeignKey("AreaId")]
-        public virtual Departamento Area { get; set; }
+        [ForeignKey("DepartamentoId")]
+        public virtual Departamento Departamento { get; set; }
 
         public bool Estado { get; set; }
 

@@ -1,12 +1,11 @@
-﻿using HelpDesk.Models.Repositorios;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HelpDesk.Models
 {
-    public class Documento: IEntidad
+    public class Documento
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -20,11 +19,9 @@ namespace HelpDesk.Models
 
         [NotMapped]
         private string _ubicacion;
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]
         [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
         [StringLength(255, MinimumLength = 2, ErrorMessage = "Deber tener entre 2 y 255 caracteres.")]
-        [DataType(DataType.Text)]
         public string Ubicacion
         {
             get { return _ubicacion; }
@@ -33,11 +30,9 @@ namespace HelpDesk.Models
 
         [NotMapped]
         private string _extension;
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]
         [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
         [StringLength(8, MinimumLength = 2, ErrorMessage = "Deber tener entre 2 y 8 caracteres.")]
-        [DataType(DataType.Text)]
         public string Extension
         {
             get { return _extension; }

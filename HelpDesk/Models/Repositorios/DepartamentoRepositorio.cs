@@ -29,7 +29,7 @@ namespace HelpDesk.Models.Repositorios
             _DepartamentoContext.SaveChanges();
         }
 
-        public Departamento FindById(int? Id)
+        public Departamento FindById(int Id)
         {
             var resultado = (from r in _DepartamentoContext.Departamentos where r.DepartamentoId == Id select r).FirstOrDefault();
 

@@ -29,7 +29,7 @@ namespace HelpDesk.Models.Repositorios
             _SolucionContext.SaveChanges();
         }
 
-        public Solucion FindById(int? Id)
+        public Solucion FindById(int Id)
         {
             var resultado = (from r in _SolucionContext.Soluciones where r.SolucionId == Id select r).FirstOrDefault();
 

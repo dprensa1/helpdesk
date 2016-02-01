@@ -29,7 +29,7 @@ namespace HelpDesk.Models.Repositorios
             _ClienteContext.SaveChanges();
         }
 
-        public Cliente FindById(int? Id)
+        public Cliente FindById(int Id)
         {
             var resultado = (from r in _ClienteContext.Clientes where r.ClienteId == Id select r).FirstOrDefault();
 
