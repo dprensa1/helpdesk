@@ -1,0 +1,61 @@
+﻿@model HelpDesk.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Inicio de Sesion";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<section id="loginForm">
+    <div class="row">
+        <br />
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4 well">
+            <br />
+            @using (Html.BeginForm("Login", "Usuarios", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div>
+                    <div class="input-group">
+                        <label class="input-group-addon">
+                            <i class="fa fa-user fa-lg"></i>
+                        </label>
+                        @Html.TextBoxFor(m => m.User, new { @class = "form-control", placeholder = "Usuario" })
+                    </div>
+                    <div>
+                        @Html.ValidationMessageFor(m => m.User)
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <div class="input-group">
+                        <label class="input-group-addon">
+                            <i class="fa fa-lock fa-lg"></i>
+                        </label>
+                        @Html.PasswordFor(m => m.Clave, new { @class = "form-control", placeholder = "Clave de Acceso" })
+                    </div>
+                    <div>
+                        @Html.ValidationMessageFor(m => m.Clave)
+                    </div>
+                </div>
+                <br>
+                <input class="pull-right btn btn-primary" name="btnLogin" type="submit" value="Iniciar Sesion" />
+            }
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="row">
+            <div class="card">
+                <div class="card-block">
+                    <h4 class="card-title">Card title</h4>
+                    <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                </div>
+                <img data-src="..." alt="Card image">
+                <div class="card-block">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

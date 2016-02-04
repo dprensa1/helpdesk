@@ -23,9 +23,19 @@ namespace HelpDesk
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            //CSS
+            bundles.Add(new StyleBundle("~/Content/site").Include(
+                        "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
+                        "~/Content/bootstrap.min.css"));
+
+            bundles.Add(new StyleBundle("~/Content/fontawesome").Include(
+                        "~/Content/font-awesome.min.css"));
+
+            /*bundles.Add(new StyleBundle("~/Content/sweetalert").Include(
+                        "~/Content/sweetalert.css"/*,
+                        "~/Content/theme-swal.css"));*/
         }
     }
 }

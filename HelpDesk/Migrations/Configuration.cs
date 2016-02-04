@@ -13,6 +13,7 @@ namespace HelpDesk.Migrations
 
         protected override void Seed(HDContext context)
         {
+            /*
             context.Usuarios.Add(
                 new Usuario
                 { 

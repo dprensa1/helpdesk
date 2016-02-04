@@ -1,24 +1,70 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿strong a i{
+    color:#AAAAAA;
+}
+strong a i:hover{
+    color:white;
+}
+strong a.active i{
+    color:black;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+ul.dropdown-menu li a i{
+ color:#276aa4;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+ul.dropdown-menu li.active a i{
+    color:#ffffff;
+}
+ 
+div ul li a:hover {
+    background: #f2f2f2;
+}
+@media (min-width: 1280px){
+    div ul li:hover ul.dropdown-menu {
+        display: block;
+    }
+    .nova{
+        display:none;
+    }
+    div ul li ul.dropdown{
+        background: #f2f2f2;
+        display: none;
+        position: absolute;
+        z-index: 999;
+        left: 0;
+    }
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+input:focus:required:invalid { background-color: pink; color: white; }
+input:focus:required:valid { background-color: white; color: palegreen; }
+
+textarea:focus:required:invalid { background-color: pink; color: white; }
+textarea:focus:required:valid { background-color: white; color: palegreen; }
+
+select:focus:required:invalid { background-color: pink; color: white; }
+select:focus:required:valid { background-color: white; color: palegreen; }
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #fe3232;
+}
+
+.field-validation-valid {
+    display: none;
+    background-color: white;
+    color: palegreen; }
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #000;
+}
+
+.validation-summary-valid {
+    display: none;
 }
