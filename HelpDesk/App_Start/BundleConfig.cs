@@ -28,7 +28,7 @@ namespace HelpDesk
                         "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
-                        "~/Content/bootstrap.min.css"));
+                        "~/Content/bootstrap.css"));
 
             bundles.Add(new StyleBundle("~/Content/fontawesome").Include(
                         "~/Content/font-awesome.min.css"));

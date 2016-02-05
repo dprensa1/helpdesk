@@ -7,14 +7,14 @@
 <section id="loginForm">
     <div class="row">
         <br />
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-4 well">
-            <br />
-            @using (Html.BeginForm("Login", "Usuarios", FormMethod.Post))
-            {
-                @Html.AntiForgeryToken()
-                <div>
+        <div class="col-md-4 col-md-offset-4 card">
+            <div class="card-header">
+                Inicio de Sesion
+            </div>
+            <div class="card-block">
+                @using (Html.BeginForm("Login", "Usuarios", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
                     <div class="input-group">
                         <label class="input-group-addon">
                             <i class="fa fa-user fa-lg"></i>
@@ -24,9 +24,7 @@
                     <div>
                         @Html.ValidationMessageFor(m => m.User)
                     </div>
-                </div>
-                <br />
-                <div>
+                    <br />
                     <div class="input-group">
                         <label class="input-group-addon">
                             <i class="fa fa-lock fa-lg"></i>
@@ -36,25 +34,12 @@
                     <div>
                         @Html.ValidationMessageFor(m => m.Clave)
                     </div>
-                </div>
-                <br>
-                <input class="pull-right btn btn-primary" name="btnLogin" type="submit" value="Iniciar Sesion" />
-            }
-        </div>
-        <div class="col-md-4">
-        </div>
-        <div class="row">
-            <div class="card">
-                <div class="card-block">
-                    <h4 class="card-title">Card title</h4>
-                    <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-                </div>
-                <img data-src="..." alt="Card image">
-                <div class="card-block">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
+
+                    <div class="card-footer pull-right ">
+                        <input class="btn btn-primary" type="submit" value="Iniciar" />
+                    </div>
+                    <br />
+                }
             </div>
         </div>
     </div>

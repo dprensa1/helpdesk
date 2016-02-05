@@ -57,7 +57,7 @@ namespace HelpDesk.Controllers
 
                     if (roles.Contains("admin"))
                     {
-                        return RedirectToAction("Inicio", "Inicio");
+                        return RedirectToAction("Index", "Inicio");
                     }
                     else if (roles.Contains("user"))
                     {

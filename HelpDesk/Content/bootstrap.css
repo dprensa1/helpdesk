@@ -2807,6 +2807,7 @@ input[type="button"].btn-block {
   -webkit-transition-property: height;
        -o-transition-property: height;
           transition-property: height;
+          transition: height 0.2s;
 }
 
 .dropup,
