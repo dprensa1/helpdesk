@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - HelpDesk</title>
+    @Styles.Render("~/Content/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/fontawesome")
+    @Styles.Render("~/Content/Site")
+
+    @{
+        string username = Request.LogonUserIdentity.Name.Substring(Request.LogonUserIdentity.Name.LastIndexOf(@"\") + 1);
+    }
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default navbar-fixed-top" id="custom-menu">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/Home/Index">HelpDesk/HD</a>
+
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#menuResponsive">
+                    &#9776;
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="menuResponsive">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a class="" href="#">Inicio</a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#">Solicitudes</a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#">Soluciones</a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#">Informes</a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#">Administracion</a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle disabled" data-toggle="dropdown" href="#" aria-expanded="false">
+                            @username
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="active"><a href="#">Cuenta</a></li>
+                            <li><a href="#">Salir</a>
+                        </ul>
+                    </li>
+
+                    <li class="">
+                        <a href="#" class="dropdown-toggle" id="Settings" data-toggle="dropdown">
+                            <i class="fa fa-cog"></i>
+                        </a>
+                        <div role="menu" class="dropdown-menu" aria-labelledby="Settings">
+                            <a class="dropdown-item" href="#">Eso</a>
+                        </div>
+                    </li>
+                </ul>
+
+                @*<form class="pull-xs-right input-group col-sm-2">
+        <input class="form-control" type="text" placeholder="Buscar">
+        <span class="input-group-btn">
+            <a href="#" class="btn btn-primary fa fa-search" type="submit">
+            </a>
+        </span>  navbar-right
+    </form>*@
+            </div>
+        </nav>
+
+        <div class="row" id="content">
+            @*<p class="pull-right">Hello, @User.Identity.Name!</p>    e6e6e6*@
+            @RenderBody()
+            Contentido
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>

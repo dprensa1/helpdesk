@@ -1,117 +1,20 @@
 ﻿@model IEnumerable<HelpDesk.Models.Solicitud>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Inicio";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="page-header">
-    <div class="pull-right">
-        <a href="#" class="btn btn-default" disabled>
-            <i class="glyphicon glyphicon-trash"></i>
-            Eliminar Seleccionados
-        </a>
-
-        <a href="/Solicitudes/Crear" class="btn btn-default">
-            <i class="glyphicon glyphicon-plus" style="color:#276aa4"></i>
-            Nueva
-        </a>
-
-        <button onclick="atras()" class="btn btn-default">
-            <i class="fa fa-chevron-left" style="color:#276aa4"></i>
-            Atr&aacute;s
-        </button>
-    </div>
-
-    <h2>Solicitudes</h2>
+<div class="col-md-4">
+    <a href="/Solicitudes/" class="btn btn-default">
+        <i class="fa fa-book fa-5x"></i>
+        <br />
+        <p>Crear Solicitud</p>
+    </a>
 </div>
 
-<div class="row">
-    <table class="table table-responsive table-condensed table-bordered table-hover">
-        <thead>
-            <tr class="bg-primary">
-                <th>
-                    <strong>
-                        <input type="checkbox">
-                    </strong>
-                </th>
-                <th>
-                    <strong>
-                        # <a href="#"><i class="fa fa-caret-down"></i></a>
-                    </strong>
-                </th>
-                <th>
-                    <strong>
-                        Asunto <a href="#" class=""><i class="fa fa-caret-down"></i></a>
-                    </strong>
-                </th>
-                <th>
-                    <strong>
-                        Cliente <a href="#"><i class=""></i></a>
-                    </strong>
-                </th>
-                <th>
-                    <strong>
-                        Asignado a<a href="#"><i class=""></i></a>
-                    </strong>
-                </th>
-                <th class="text-center">
-                    <strong>
-                        Acciones
-                    </strong>
-                </th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @{
-                var x = 0;
-                var activoSeleccion = "";
-            }
-            @Html.AntiForgeryToken()
-            @foreach (var puesto in Model)
-            {
-                activoSeleccion = (ViewBag.activoSeleccion == puesto.PuestoID) ? "bg-success" : "";
-                x++;
-
-                <tr class="@activoSeleccion.ToString()">
-                    <td><input type="checkbox"></td>
-                    <td>
-                        <a href="/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)">
-                            @Html.Encode(x)
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)">
-                            @Html.DisplayFor(Nombre => puesto.Nombre)
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)">
-                            @Html.DisplayFor(Nombre => puesto.Descripcion)
-                        </a>
-                    </td>
-                    <td>
-                        <a href="#">
-                            @Html.DisplayFor(Funciones => puesto.Funciones) <span class="fa fa-chevron-circle-down"></span>
-                        </a>
-                    </td>
-                    <td class="text-center">
-                        <div class="btn-group" role="group">
-                            <a href="/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)" class="btn btn-default" id="">
-                                <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
-                            </a>
-                            <a href="/Puestos/Editar/@Html.DisplayFor(id => puesto.PuestoID)" class="btn btn-default" id="">
-                                <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
-                            </a>
-                            <a href="/Puestos/Borrar/@Html.DisplayFor(id => puesto.PuestoID)" class="btn btn-default" id="">
-                                <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
-                            </a>
-                        </div>
-                    </td>
-                </tr>
-                activoSeleccion = "";
-            }
-        </tbody>
-        <tfoot>
-        </tfoot>
-    </table>
+<div class="col-md-4">
+    <a href="/Soluciones/" class="btn btn-default">
+        <i class="fa fa-list fa-5x" ></i>
+        <br />
+        <p>Crear Solucion</p>
+    </a>
 </div>

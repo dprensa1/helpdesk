@@ -1,22 +1,74 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@model IEnumerable<HelpDesk.Models.Solicitud>
+@{
+    ViewBag.Title = "Solicitudes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row"page-header" id="header-solicitudes">
+    <div class="pull-right">
+        <a href="#" class="btn btn-default" disabled>
+            <i class="glyphicon glyphicon-trash"></i>
+            Eliminar Seleccionados
+        </a>
 
-<ul class="nav nav-tabs">
-    <li class="nav-item">
-        <a class="nav-link active" href="#">Solicitud</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Delegar</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Historico</a>
-    </li>
-</ul>
-asdasdfasd <br />
-asdasdfasd <br />
-asdasdfasd <br />
-asdasdfasd <br />
-asdasdfasd <br />
-asdasdfasd <br />
+        <a href="/Solicitudes/Crear" class="btn btn-default">
+            <i class="glyphicon glyphicon-plus" style="color:#276aa4"></i>
+            Nueva
+        </a>
+
+        <button onclick="atras()" class="btn btn-info-outline">
+            <i class="fa fa-chevron-left" style="color:#276aa4"></i>
+            Atr&aacute;s
+        </button>
+    </div>
+
+    <h3>Solicitudes</h3>
+</div>
+<div class="row">
+    <table class="table table-sm table-condensed table-bordered table-hover">
+        <thead>
+            <tr class="bg-primary">
+                <th>
+                    <input type="checkbox">
+                </th>
+                <th>
+                    <strong>
+                        Id <a href="#"><i class="fa fa-caret-down"></i></a>
+                    </strong>
+                </th>
+                <th>
+                    <strong>
+                        Asunto <a href="#" class=""><i class="fa fa-caret-down"></i></a>
+                    </strong>
+                </th>
+                <th>
+                    <strong>
+                        Cliente <a href="#"><i class=""></i></a>
+                    </strong>
+                </th>
+                <th>
+                    <strong>
+                        Asignado a <a href="#"><i class=""></i></a>
+                    </strong>
+                </th>
+                <th>
+                    <strong>
+                        Fecha de Creacion <a href="#"><i class=""></i></a>
+                    </strong>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @Html.AntiForgeryToken()
+            <tr class="">
+                <td><input type="checkbox"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        <tfoot>
+        </tfoot>
+    </table>
+</div>

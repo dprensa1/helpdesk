@@ -14,19 +14,14 @@ namespace HelpDesk.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SolicitudId { get; set; }
-        
-        [NotMapped]
-        private DateTime _fechaCreacion;
+
         [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]
         [Column(TypeName = "Date")]
-        public DateTime FechaCreacion
-        {
-            get { return _fechaCreacion; }
-            set { _fechaCreacion = value; }
-        }
+        public DateTime FechaCreacion { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         public int ClienteId { get; set; }
+
         public virtual Cliente Cliente { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
@@ -41,6 +36,7 @@ namespace HelpDesk.Models
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]
         public int CategoriaId { get; set; }
+
         public virtual Categoria Categoria { get; set; }
 
         public int UsuarioId { get; set; }
@@ -50,18 +46,13 @@ namespace HelpDesk.Models
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]
         public int SolucionId { get; set; }
+
         public virtual Solucion Solucion { get; set; }
 
-        [NotMapped]
-        private DateTime _fechaModificacion;
         [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]
         [Column(TypeName = "Date")]
         [DefaultValue("2016/01/01")]
-        public DateTime FechaModificacion
-        {
-            get { return _fechaModificacion; }
-            set { _fechaModificacion = value; }
-        }
+        public DateTime FechaModificacion { get; set; }
 
         public Estado Estado { get; set; }             //Enum
     }

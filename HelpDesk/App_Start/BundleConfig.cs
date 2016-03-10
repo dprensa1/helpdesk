@@ -24,8 +24,8 @@ namespace HelpDesk
                       "~/Scripts/respond.js"));
 
             //CSS
-            bundles.Add(new StyleBundle("~/Content/site").Include(
-                        "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/Site").Include(
+                        "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
                         "~/Content/bootstrap.css"));

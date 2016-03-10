@@ -1,32 +1,164 @@
-﻿strong a i{
-    color:#AAAAAA;
-}
-strong a i:hover{
-    color:white;
-}
-strong a.active i{
-    color:black;
+﻿/*custom bar e7e7e7*/
+body {
+    background-color: #eee;
 }
 
-ul.dropdown-menu li a i{
- color:#276aa4;
+#custom-menu:after {
+    border-bottom: 3px solid #337ab7;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 100%;
 }
 
-ul.dropdown-menu li.active a i{
-    color:#ffffff;
+#custom-menu.navbar-default .navbar-brand {
+    color: rgba(119, 119, 119, 1);
 }
- 
-div ul li a:hover {
-    background: #f2f2f2;
+
+#custom-menu.navbar-default {
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 1);
+    border-bottom-width: 0;
 }
-@media (min-width: 1280px){
+
+    #custom-menu.navbar-default .navbar-nav > li > a {
+        color: rgba(119, 119, 119, 1);
+        background-color: rgba(0, 0, 0, 1);
+    }
+
+        #custom-menu.navbar-default .navbar-nav > li > a:hover,
+        #custom-menu.navbar-default .navbar-nav > li > a:focus {
+            color: rgba(255, 255, 255, 1);
+            background-color: rgba(248, 248, 248, 0);
+        }
+
+    #custom-menu.navbar-default .navbar-nav > .active > a,
+    #custom-menu.navbar-default .navbar-nav > .active > a:hover,
+    #custom-menu.navbar-default .navbar-nav > .active > a:focus {
+        color: rgba(255, 255, 255, 1);
+        background-color: rgba(51, 122, 183, 1);
+    }
+
+    #custom-menu.navbar-default .navbar-toggle {
+        border-color: #337ab7;
+    }
+
+        #custom-menu.navbar-default .navbar-toggle:hover,
+        #custom-menu.navbar-default .navbar-toggle:focus {
+            background-color: #337ab7;
+        }
+
+        #custom-menu.navbar-default .navbar-toggle .icon-bar {
+            background-color: #337ab7;
+        }
+
+        #custom-menu.navbar-default .navbar-toggle:hover .icon-bar,
+        #custom-menu.navbar-default .navbar-toggle:focus .icon-bar {
+            background-color: #000000;
+        }
+/*end custom bar*/
+
+nav ul li:hover:after {
+    border: 3px solid #337ab7;
+    bottom: 0;
+    content: "";
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 100%;
+}
+
+nav ul li.active:after {
+    border: 0 solid rgba(255, 255, 255, 1);
+    content: "";
+    position: absolute;
+    width: 100%;
+}
+
+/*ul.nav li.dropdown:hover > ul.dropdown-menu 
+{
+    display: none !important
+}*/
+
+/*ul.nav li.dropdown:hover > ul.dropdown-menu 
+{
+    display: block !important
+}*/
+
+.Login,  form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+#User {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#Clave {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#header-solicitudes, #HelpDesk {
+    border-bottom: solid #e6e6e6 2px;
+}
+
+#header-solicitudes {
+    padding-bottom: 6px;
+    margin-bottom: 5px;
+}
+
+#HelpDesk {
+    border-bottom: solid #e6e6e6 2px;
+    margin-bottom: 5px;
+}
+
+#content {
+    padding-top: 45px;
+}
+
+.content2 {
+    /*padding-top: 1px;*/
+    /*-webkit-box-shadow: 3px 3px 15px -4px rgb(153, 153, 153), -3px 3px 8px -4px rgb(153, 153, 153);
+    -moz-box-shadow: 3px 3px 15px -4px rgb(153, 153, 153), -3px 3px 8px -4px rgb(153, 153, 153);
+    box-shadow: 3px 3px 15px -4px rgb(153, 153, 153), -3px 3px 8px -4px rgb(153, 153, 153);*/
+}
+
+#side-left {
+    height: 558px;
+    border-right: solid #e6e6e6 2px;
+}
+
+strong a i {
+    color: #AAAAAA;
+}
+
+    strong a i:hover {
+        color: white;
+    }
+
+strong a.active i {
+    color: black;
+}
+
+@media (min-width: 1280px) {
     div ul li:hover ul.dropdown-menu {
         display: block;
     }
-    .nova{
-        display:none;
+
+    .nova {
+        display: none;
     }
-    div ul li ul.dropdown{
+
+    div ul li ul.dropdown {
         background: #f2f2f2;
         display: none;
         position: absolute;
@@ -35,14 +167,35 @@ div ul li a:hover {
     }
 }
 
-input:focus:required:invalid { background-color: pink; color: white; }
-input:focus:required:valid { background-color: white; color: palegreen; }
+input:focus:required:invalid {
+    background-color: pink;
+    color: white;
+}
 
-textarea:focus:required:invalid { background-color: pink; color: white; }
-textarea:focus:required:valid { background-color: white; color: palegreen; }
+input:focus:required:valid {
+    background-color: white;
+    color: palegreen;
+}
 
-select:focus:required:invalid { background-color: pink; color: white; }
-select:focus:required:valid { background-color: white; color: palegreen; }
+textarea:focus:required:invalid {
+    background-color: pink;
+    color: white;
+}
+
+textarea:focus:required:valid {
+    background-color: white;
+    color: palegreen;
+}
+
+select:focus:required:invalid {
+    background-color: pink;
+    color: white;
+}
+
+select:focus:required:valid {
+    background-color: white;
+    color: palegreen;
+}
 
 /* Styles for validation helpers
 -----------------------------------------------------------*/
@@ -53,7 +206,8 @@ select:focus:required:valid { background-color: white; color: palegreen; }
 .field-validation-valid {
     display: none;
     background-color: white;
-    color: palegreen; }
+    color: palegreen;
+}
 
 .input-validation-error {
     border: 1px solid #f00;

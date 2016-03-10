@@ -3,26 +3,25 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - HelpDesk</title>
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/fontawesome")
     @Styles.Render("~/Content/bootstrap")
     @Styles.Render("~/Content/site")
 </head>
 <body>
-    <div class="container-fluid" style="background-color: #e6e6e6">
-        <div class="row" style="padding: 5px 15px 5px 15px">
-            <div class="col-md-3" style="background-color: #ffffff;">
-                <h1>HelpDesk</h1>
-                @*
-                    para chequear
-                *@
-
+    <div class="container-fluid">
+        <div class="row" id="row-main">
+            <div class="page-header" id="HelpDesk">
+                <h2><a href="/Inicio/Index">HelpDesk</a></h2>
+            </div>
+            <div class="col-md-3" id="side-left">
                 <div class="card-group" id="accordion">
                     <div class="card-header">
                         <span class="card-title">
+                            <a href="/Solicitudes/Index">Solicitudes </a>
                             <a data-toggle="collapse" data-parent="#accordion" href="#Solicitudes" class="">
-                                Solicitudes
+                                <i class="fa fa-caret-down"></i>
                             </a>
                         </span>
 
@@ -39,8 +38,9 @@
 
                     <div class="card-header">
                         <span class="card-title">
+                            <a href="">Soluciones </a>
                             <a data-toggle="collapse" data-parent="#accordion" href="#Soluciones" class="">
-                                Soluciones
+                                <i class="fa fa-caret-down"></i>
                             </a>
                         </span>
 
@@ -57,8 +57,9 @@
 
                     <div class="card-header">
                         <span class="card-title">
+                            <a href="">Administracion </a>
                             <a data-toggle="collapse" data-parent="#accordion" href="#Administracion" class="">
-                                Administracion
+                                <i class="fa fa-caret-down"></i>
                             </a>
                         </span>
 
@@ -73,16 +74,10 @@
                         </div>
                     </div>
                 </div>
-
-                @*
-                    para chequear
-                *@
-
-
             </div>
 
-            <div class="col-md-9" style="background-color: #ffffff;">
-                <p class="pull-right">Hello, @User.Identity.Name!</p>
+            <div class="col-md-9" id="content">
+                @*<p class="pull-right">Hello, @User.Identity.Name!</p>    e6e6e6*@
                 @RenderBody()
                 Contentido
             </div>

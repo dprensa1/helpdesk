@@ -22,15 +22,9 @@ namespace HelpDesk.Models
 
         public virtual ICollection<Usuario> Usuarios { get; set; }
 
-        [NotMapped]
-        private DateTime _fechaCreacion;
         [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]
         [Column(TypeName = "Date")]
         [DefaultValue("2016/01/01")]
-        public DateTime FechaCreacion
-        {
-            get { return _fechaCreacion; }
-            set { _fechaCreacion = value; }
-        }
+        public DateTime FechaCreacion { get; set; }
     }
 }
