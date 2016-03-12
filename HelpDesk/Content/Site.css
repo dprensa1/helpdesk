@@ -3,15 +3,6 @@ body {
     background-color: #eee;
 }
 
-#custom-menu:after {
-    border-bottom: 3px solid #337ab7;
-    bottom: 0;
-    content: "";
-    left: 0;
-    position: absolute;
-    width: 100%;
-}
-
 #custom-menu.navbar-default .navbar-brand {
     color: rgba(119, 119, 119, 1);
 }
@@ -59,34 +50,8 @@ body {
         }
 /*end custom bar*/
 
-nav ul li:hover:after {
-    border: 3px solid #337ab7;
-    bottom: 0;
-    content: "";
-    left: 0;
-    right: 0;
-    position: absolute;
-    width: 100%;
-}
 
-nav ul li.active:after {
-    border: 0 solid rgba(255, 255, 255, 1);
-    content: "";
-    position: absolute;
-    width: 100%;
-}
-
-/*ul.nav li.dropdown:hover > ul.dropdown-menu 
-{
-    display: none !important
-}*/
-
-/*ul.nav li.dropdown:hover > ul.dropdown-menu 
-{
-    display: block !important
-}*/
-
-.Login,  form-control {
+.Login, form-control {
     position: relative;
     height: auto;
     -webkit-box-sizing: border-box;

@@ -60,7 +60,7 @@ namespace HelpDesk.Models.Repositorios
             //Trabajar con el hash para el pass
             var Usuario = _UsuarioContext.Usuarios
                 .Where(
-                    u => u.UserName == user && u.Clave == pass
+                    u => u.UserName == user && u.PasswordHash == pass
                     ).FirstOrDefault();
 
             return Usuario;

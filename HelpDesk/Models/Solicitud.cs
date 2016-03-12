@@ -1,59 +1,32 @@
-﻿using HelpDesk.Models.Enum;
-using HelpDesk.Models.Repositorios;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using HelpDesk.Models.Enum;
+using HelpDesk.Models.Interfaces;
 
 namespace HelpDesk.Models
 {
-    [Table("Solicitudes")]
-    public class Solicitud
+    public class Solicitud : IAuditable
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SolicitudId { get; set; }
+        public DateTime Fecha { get; set; }
+        public string Asunto { get; set; }
+        public string Descripcion { get; set; }
+        public EstadoEnum Estado { get; set; }
 
-        [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]
-        [Column(TypeName = "Date")]
-        public DateTime FechaCreacion { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         public int ClienteId { get; set; }
+        public int CategoriaId { get; set; }
+        public int UsuarioId { get; set; }
+        public int SolucionId { get; set; }                                     //
 
         public virtual Cliente Cliente { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
-        [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
-        [StringLength(32, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 32 caracteres.")]
-        public string Asunto { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]
-        [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
-        [StringLength(200, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 200 caracteres.")]
-        public string Descripcion { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]
-        public int CategoriaId { get; set; }
-
         public virtual Categoria Categoria { get; set; }
-
-        public int UsuarioId { get; set; }
         public virtual Usuario Usuario { get; set; }
-
+        public virtual Solucion Solucion { get; set; }                          //
         public virtual ICollection<Documento> Documentos { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]
-        public int SolucionId { get; set; }
-
-        public virtual Solucion Solucion { get; set; }
-
-        [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]
-        [Column(TypeName = "Date")]
-        [DefaultValue("2016/01/01")]
-        public DateTime FechaModificacion { get; set; }
-
-        public Estado Estado { get; set; }             //Enum
+        public DateTime CreadoEn { get; set; }
+        public string CreadoPor { get; set; }
+        public DateTime ModificadoEn { get; set; }
+        public string ModificadoPor { get; set; }
     }
 }

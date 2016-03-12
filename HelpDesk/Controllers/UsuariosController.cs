@@ -1,5 +1,4 @@
 ﻿using HelpDesk.Models;
-using HelpDesk.ViewModels;
 using System.Web.Mvc;
 
 namespace HelpDesk.Controllers

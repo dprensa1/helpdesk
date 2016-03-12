@@ -1,36 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
 
 namespace HelpDesk.Models
 {
-    [Table("Clientes")]
-    public class Cliente : IPersona
+    public class Cliente : Empleado
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ClienteId { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
-        [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
-        [StringLength(16, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 16 caracteres.")]
-        public string Nombre { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
-        [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
-        [StringLength(16, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 16 caracteres.")]
-        public string Apellido { get; set; }
-
-        [Required(ErrorMessage = "Requerido.", AllowEmptyStrings = false)]
-        public virtual ICollection<Departamento> Departamentos { get; set; }
-
-        public bool Estado { get; set; }
-
-        [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]
-        [Column(TypeName = "Date")]
-        [DefaultValue("2016/01/01")]
-        public DateTime FechaCreacion { get; set; }
+        public ICollection<Solicitud> Solicitudes { get; set; }
     }
 }

@@ -1,30 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using HelpDesk.Models.Interfaces;
 
 namespace HelpDesk.Models
 {
-    [Table("Departamentos")]
-    public class Departamento
+    public class Departamento : IAuditable
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DepartamentoId { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
-        [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
-        [StringLength(16, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 16 caracteres.")]
         public string Nombre { get; set; }
-
+        public string Ubicacion { get; set; }
         public virtual ICollection<Cliente> Clientes { get; set; }
+        public virtual ICollection<Tecnico> Tecnicos { get; set; }
 
-        public virtual ICollection<Usuario> Usuarios { get; set; }
-
-        [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]
-        [Column(TypeName = "Date")]
-        [DefaultValue("2016/01/01")]
-        public DateTime FechaCreacion { get; set; }
+        public DateTime CreadoEn { get; set; }
+        public string CreadoPor { get; set; }
+        public DateTime ModificadoEn { get; set; }
+        public string ModificadoPor { get; set; }
     }
 }

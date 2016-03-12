@@ -56,6 +56,14 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation.Mvc, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.MVC5.6.2.1.0\lib\Net45\FluentValidation.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -159,6 +167,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\SolicitudesController.cs" />
@@ -166,16 +175,32 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infraestructure\ConfigurationModel\CategoriaConfig.cs" />
+    <Compile Include="Infraestructure\ConfigurationModel\ClienteConfig.cs" />
+    <Compile Include="Infraestructure\ConfigurationModel\DepartamentoConfig.cs" />
+    <Compile Include="Infraestructure\ConfigurationModel\DocumentoConfig.cs" />
+    <Compile Include="Infraestructure\ConfigurationModel\TecnicoConfig.cs" />
+    <Compile Include="Infraestructure\ConfigurationModel\RolConfig.cs" />
+    <Compile Include="Infraestructure\ConfigurationModel\SolicitudConfig.cs" />
+    <Compile Include="Infraestructure\ConfigurationModel\SolucionConfig.cs" />
+    <Compile Include="Infraestructure\ConfigurationModel\UsuarioConfig.cs" />
+    <Compile Include="Infraestructure\IdentityManager\AppRoleManager.cs" />
+    <Compile Include="Infraestructure\IdentityManager\AppUserManager.cs" />
+    <Compile Include="Infraestructure\ValidationModel\CategoriaValidator.cs" />
+    <Compile Include="Infraestructure\ValidationModel\DepartamentoValidator.cs" />
+    <Compile Include="Infraestructure\ValidationModel\DocumentoValidator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Empleado.cs" />
     <Compile Include="Models\Departamento.cs" />
     <Compile Include="Models\Documento.cs" />
-    <Compile Include="Models\Enum\Estado.cs" />
-    <Compile Include="Models\Enum\Prioridad.cs" />
-    <Compile Include="Models\IPersona.cs" />
+    <Compile Include="Models\Enum\EstadoEnum.cs" />
+    <Compile Include="Models\Enum\PrioridadEnum.cs" />
+    <Compile Include="Models\Enum\TipoUsuarioEnum.cs" />
+    <Compile Include="Models\Interfaces\IAuditable.cs" />
+    <Compile Include="Models\Interfaces\IEmpleado.cs" />
     <Compile Include="Models\Repositorios\CategoriaRepositorio.cs" />
-    <Compile Include="Models\Repositorios\ClienteRepositorio.cs" />
     <Compile Include="Models\Repositorios\DepartamentoRepositorio.cs" />
     <Compile Include="Models\Repositorios\DocumentoRepositorio.cs" />
     <Compile Include="Models\Repositorios\IRepositorio.cs" />
@@ -186,6 +211,7 @@
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Solicitud.cs" />
     <Compile Include="Models\Solucion.cs" />
+    <Compile Include="Models\Tecnico.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\HDContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -198,15 +224,12 @@
     <Compile Include="ViewModels\TecnicoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\FontAwesome.otf" />
@@ -214,14 +237,8 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

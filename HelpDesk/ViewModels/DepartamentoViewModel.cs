@@ -18,7 +18,7 @@ namespace HelpDesk.ViewModels
 
         public virtual ICollection<Categoria> Categorias { get; set; }
 
-        public virtual ICollection<Cliente> Clientes { get; set; }
+        public virtual ICollection<Empleado> Clientes { get; set; }
 
         public virtual ICollection<Usuario> Tecnicos { get; set; }
     }

@@ -1,26 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using HelpDesk.Models.Interfaces;
+using System;
 
 namespace HelpDesk.Models
 {
-    [Table("Roles")]
-    public class Rol
+    public class Rol : IdentityRole, IAuditable
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RolId { get; set; }
-        
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
-        [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
-        [StringLength(16, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 16 caracteres.")]
         public string Nombre { get; set; }
-        
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]
-        [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
-        [StringLength(64, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 64 caracteres.")]
         public string Descripcion { get; set; }
-
         public virtual ICollection<Usuario> Usuarios { get; set; }
+
+        public DateTime CreadoEn { get; set; }
+        public string CreadoPor { get; set; }
+        public DateTime ModificadoEn { get; set; }
+        public string ModificadoPor { get; set; }
     }
 }

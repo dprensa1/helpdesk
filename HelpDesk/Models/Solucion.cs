@@ -1,31 +1,20 @@
-﻿using HelpDesk.Models.Repositorios;
-using System;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using HelpDesk.Models.Interfaces;
+using System.Collections.Generic;
 
 namespace HelpDesk.Models
 {
-    [Table("Soluciones")]
-    public class Solucion
+    public class Solucion : IAuditable
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SolucionId { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
-        [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
-        [StringLength(16, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 16 caracteres.")]
         public string Nombre { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
-        [RegularExpression(@"[a-zA-Z ]+\w", ErrorMessage = "Solo letras.")]
-        [StringLength(64, MinimumLength = 4, ErrorMessage = "Deber tener entre 4 y 64 caracteres.")]
         public string Detalle { get; set; }
-
-        [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]
-        [Column(TypeName = "Date")]
-        [DefaultValue("2016/01/01")]
+        public virtual ICollection<Solicitud> Solicitudes { get; set; }         //
         public DateTime FechaCreacion { get; set; }
+        
+        public DateTime CreadoEn { get; set; }
+        public string CreadoPor { get; set; }
+        public DateTime ModificadoEn { get; set; }
+        public string ModificadoPor { get; set; }
     }
 }
