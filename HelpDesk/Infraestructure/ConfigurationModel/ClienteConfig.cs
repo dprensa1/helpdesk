@@ -10,9 +10,9 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
         {
             ToTable("Clientes");
 
-            HasKey(e => new { e.EmpleadoId, e.Cedula });
+            HasKey(c => new {c.ClienteId, c.Cedula });
 
-            Property(e => e.EmpleadoId)
+            Property(e => e.ClienteId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("Id");
 
@@ -52,17 +52,16 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
             Property(c => c.Codigo);
 
             Property(c => c.FechaEntrada)
-                .HasColumnType("date")
+                .HasColumnType("date")          
                 .IsRequired();
 
             HasRequired(d => d.Departamento)
                 .WithMany(e => e.Clientes )
                 .HasForeignKey(d => d.DepartamentoId);
 
-            //
-            //HasMany(s => s.Solicitudes)
-            //        .WithRequired(s => s.Empleado)
-            //        .HasForeignKey(s => s.SolicitudId);
+            HasMany(s => s.Solicitudes)
+                    .WithRequired(s => s.Cliente)
+                    .HasForeignKey(s => s.SolicitudId);
         }
     }
 }

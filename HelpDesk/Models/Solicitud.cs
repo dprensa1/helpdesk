@@ -13,7 +13,7 @@ namespace HelpDesk.Models
         public string Descripcion { get; set; }
         public EstadoEnum Estado { get; set; }
 
-        public int ClienteId { get; set; }
+        public int? ClienteId { get; set; }
         public int CategoriaId { get; set; }
         public int UsuarioId { get; set; }
         public int SolucionId { get; set; }                                     //

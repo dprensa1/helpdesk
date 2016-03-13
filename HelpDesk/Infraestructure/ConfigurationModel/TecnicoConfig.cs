@@ -5,15 +5,15 @@ using System.Collections.Generic;
 
 namespace HelpDesk.Infraestructure.ConfigurationModel
 {
-    public class TecnicoConfig : EntityTypeConfiguration<Empleado>
+    public class TecnicoConfig : EntityTypeConfiguration<Tecnico>
     {
         public TecnicoConfig()
         {
             ToTable("Tecnicos");
 
-            HasKey(e => new { e.EmpleadoId, e.Cedula });
+            HasKey(e => new { e.TecnicoId, e.Cedula });
 
-            Property(e => e.EmpleadoId)
+            Property(e => e.TecnicoId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("Id");
 
@@ -57,7 +57,7 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
                 .IsRequired();
 
             HasRequired(d => d.Departamento)
-                .WithMany(e => (ICollection<Empleado>)e.Tecnicos)
+                .WithMany(e => e.Tecnicos)
                 .HasForeignKey(d => d.DepartamentoId);
 
             //

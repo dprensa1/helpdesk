@@ -192,7 +192,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
-    <Compile Include="Models\Empleado.cs" />
     <Compile Include="Models\Departamento.cs" />
     <Compile Include="Models\Documento.cs" />
     <Compile Include="Models\Enum\EstadoEnum.cs" />

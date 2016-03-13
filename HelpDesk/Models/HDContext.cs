@@ -14,7 +14,8 @@ namespace HelpDesk.Models
         public DbSet<Documento> Documentos { get; set; }
         public DbSet<Solucion> Soluciones { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<Empleado> Clientes { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Tecnico> Tecnicos { get; set; }
 
         public HDContext() //: base("HelpDesk")
         {
@@ -42,6 +43,7 @@ namespace HelpDesk.Models
             modelBuilder.Configurations.Add(new TecnicoConfig());
             modelBuilder.Configurations.Add(new SolucionConfig());
             modelBuilder.Configurations.Add(new SolicitudConfig());
+            modelBuilder.Configurations.Add(new ClienteConfig());
 
             modelBuilder.Entity<IdentityUserLogin>().HasKey(l => l.UserId);
             modelBuilder.Entity<IdentityRole>().HasKey(r => r.Id);

@@ -9,41 +9,42 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
         {
             ToTable("Solicitudes");
 
-            HasKey(d => d.SolicitudId /*new { d.SolicitudId, d.EmpleadoId, d.UsuarioId }*/);
+            HasKey(s => s.SolicitudId);
 
-            Property(c => c.Fecha)
+            Property(s => s.Fecha)
                 .HasColumnType("date2")
                 .IsRequired();
 
-            Property(c => c.Asunto)
+            Property(s => s.Asunto)
                 .HasColumnType("nvarchar")
                 .HasMaxLength(32)
                 .IsRequired();
 
-            Property(c => c.Asunto)
+            Property(s => s.Asunto)
                 .HasColumnType("nvarchar")
                 .HasMaxLength(32)
                 .IsRequired();
 
-            Property(c => c.Descripcion)
+            Property(s => s.Descripcion)
                 .HasColumnType("nvarchar")
                 .HasMaxLength(32)
                 .IsRequired();
 
-            Property(c => c.Estado)
+            Property(s => s.Estado)
                 .HasColumnType("nvarchar")
                 .IsRequired();
 
-            HasRequired(e => e.Cliente)
+            HasRequired(c => c.Cliente)
                 .WithMany(s => s.Solicitudes)
-                .HasForeignKey(s => s.ClienteId);
+                .HasForeignKey(c => c.ClienteId);
 
-            HasRequired(e => e.Categoria)
+            HasRequired(s => s.Categoria)
                 .WithMany(s => s.Solicitudes)
                 .HasForeignKey(s => s.CategoriaId);
 
-            HasRequired(e => e.Usuario)
-                .WithMany(s => s.Solicitudes);
+            HasRequired(u => u.Usuario)
+                .WithMany(s => s.Solicitudes)
+                .HasForeignKey(u => u.UsuarioId);
 
             HasRequired(s => s.Solucion)
                     .WithMany(s => s.Solicitudes)

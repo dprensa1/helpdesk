@@ -11,7 +11,7 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
         {
             ToTable("Usuarios");
 
-            HasKey(u => new { u.Id, u.UsuarioId });
+            HasKey(u => new { u.Id, u.UsuarioId});
 
             Property(u => u.UsuarioId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
