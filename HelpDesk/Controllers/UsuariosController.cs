@@ -1,4 +1,5 @@
 ﻿using HelpDesk.Models;
+using HelpDesk.ViewModels;
 using System.Web.Mvc;
 
 namespace HelpDesk.Controllers
@@ -16,7 +17,7 @@ namespace HelpDesk.Controllers
         // POST: Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Usuario usuario, string returnUrl = "")
+        public ActionResult Login(LoginViewModel usuario, string returnUrl = "")
         {
             return View(usuario);
         }

@@ -10,7 +10,7 @@
     @using (Html.BeginForm("Login", "Usuarios", FormMethod.Post, new {@class = "Login" }))
     {
         @Html.AntiForgeryToken()
-        @Html.TextBoxFor(m => m.User, new { @class = "form-control", placeholder = "Usuario"})
+        @Html.TextBoxFor(m => m.User, new { @class = "form-control", placeholder = "Usuario" })
         @Html.ValidationMessageFor(m => m.User)
         @Html.PasswordFor(m => m.Clave, new { @class = "form-control", placeholder = "Clave de Acceso" })
         @Html.ValidationMessageFor(m => m.Clave)

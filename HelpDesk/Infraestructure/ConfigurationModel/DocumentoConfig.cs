@@ -23,13 +23,27 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
 
             Property(c => c.Extension)
                 .HasColumnType("nvarchar")
-                .HasMaxLength(8)
+                .HasMaxLength(28)
                 .IsRequired();
 
             Property(c => c.Ruta)
                 .HasColumnType("nvarchar")
                 .HasMaxLength(255)
                 .IsRequired();
+
+            Property(c => c.CreadoEn)
+                .HasColumnType("date");
+
+            Property(c => c.CreadoPor)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(16);
+
+            Property(c => c.ModificadoEn)
+                .HasColumnType("date");
+
+            Property(c => c.ModificadoPor)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(16);
         }
     }
 }

@@ -94,3 +94,5 @@ D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\ru\FluentValidatio
 D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\sv\FluentValidation.resources.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\tr\FluentValidation.resources.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\zh-CN\FluentValidation.resources.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\Faker.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\HelpDesk\HelpDesk\bin\FizzWare.NBuilder.dll

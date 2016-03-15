@@ -1,19 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using HelpDesk.Models;
-using System.Collections.Generic;
+using System.Data.Entity.Infrastructure.Annotations;
 
 namespace HelpDesk.Infraestructure.ConfigurationModel
 {
-    public class TecnicoConfig : EntityTypeConfiguration<Tecnico>
+    public class UsuarioPerfilConfig : EntityTypeConfiguration<UsuarioPerfil>
     {
-        public TecnicoConfig()
+        public UsuarioPerfilConfig()
         {
-            ToTable("Tecnicos");
+            ToTable("UsuarioPerfil");
 
-            HasKey(e => new { e.TecnicoId, e.Cedula });
+            HasKey(e => e.UsuarioPerfilId);
 
-            Property(e => e.TecnicoId)
+            Property(e => e.UsuarioPerfilId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("Id");
 
@@ -27,19 +27,21 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
                 .HasMaxLength(32)
                 .IsRequired();
 
-            Property(c => c.Sexo)
-                .HasColumnType("char")
-                .HasMaxLength(1)
-                .IsRequired();
+            //Property(c => c.Sexo)
+            //    .HasColumnType("nvarchar")
+            //    .HasMaxLength(1)
+            //    .IsRequired();
 
             Property(c => c.FechaNacimiento)
-                .HasColumnType("date2")
+                .HasColumnType("date")
                 .IsRequired();
 
             Property(c => c.Cedula)
                 .HasColumnType("nvarchar")
                 .HasMaxLength(11)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnAnnotation(
+                    "Index", new IndexAnnotation(new IndexAttribute("Idx_Cedula") { IsUnique = true }));
 
             Property(c => c.Telefono)
                 .HasColumnType("nvarchar")
@@ -56,14 +58,22 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
                 .HasColumnType("date")
                 .IsRequired();
 
-            HasRequired(d => d.Departamento)
-                .WithMany(e => e.Tecnicos)
-                .HasForeignKey(d => d.DepartamentoId);
+            Property(c => c.CreadoEn)
+                .HasColumnType("date");
 
-            //
-            //HasMany(s => s.Solicitudes)
-            //        .WithRequired(s => s.Empleado)
-            //        .HasForeignKey(s => s.SolicitudId);
+            Property(c => c.CreadoPor)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(16);
+
+            Property(c => c.ModificadoEn)
+                .HasColumnType("date");
+
+            Property(c => c.ModificadoPor)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(16);
+
+            //HasRequired(u => u.Usuario)
+                //.WithOptional(t => t.UsuarioPerfil);
         }
     }
 }

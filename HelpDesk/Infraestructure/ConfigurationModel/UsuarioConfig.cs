@@ -11,11 +11,10 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
         {
             ToTable("Usuarios");
 
-            HasKey(u => new { u.Id, u.UsuarioId});
+            //HasKey(u => u.Id);
 
-            Property(u => u.UsuarioId)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
-                .HasColumnName("Id");
+            //Property(u => u.Id)
+            //    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(u => u.UserName)
                 .HasColumnType("nvarchar")
@@ -29,22 +28,19 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
                 .HasMaxLength(32)
                 .IsRequired();
 
-            HasRequired(e => e.Tecnico)
-                .WithRequiredPrincipal(u => u.Usuario);
+            Property(c => c.CreadoEn)
+                .HasColumnType("date");
 
-            //
-            //HasMany(s => s.Solicitudes)
-            //        .WithRequired(s => s.Usuario)
-            //        .HasForeignKey(s => s.SolicitudId);
+            Property(c => c.CreadoPor)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(16);
 
-            HasMany(r => r.Rols)
-                .WithMany(u => u.Usuarios)
-                .Map(ur =>
-                {
-                    ur.MapLeftKey("UsuarioId");
-                    ur.MapRightKey("RolId");
-                    ur.ToTable("UsuariosRoles");
-                });
+            Property(c => c.ModificadoEn)
+                .HasColumnType("date");
+
+            Property(c => c.ModificadoPor)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(16);
         }
     }
 }

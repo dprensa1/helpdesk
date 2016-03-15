@@ -2,12 +2,12 @@
 {
     public enum EstadoEnum
     {
-        Abierto,
-        EsperandoPieza,
-        Espera,
-        Pendiente,
-        ProveedorExterno,
-        Resuelto,
-        Cerrado
+        Abierto = 1,
+        EsperandoPieza = 2,
+        Espera = 3,
+        Pendiente = 4,
+        ProveedorExterno = 5,
+        Resuelto = 6,
+        Cerrado = 7
     }
 }

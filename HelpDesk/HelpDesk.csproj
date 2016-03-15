@@ -56,6 +56,14 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Faker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Faker.1.2\lib\Faker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FizzWare.NBuilder, Version=3.0.1.0, Culture=neutral, PublicKeyToken=5651b03e12e42c12, processorArchitecture=MSIL">
+      <HintPath>..\packages\NBuilder.3.0.1.1\lib\FizzWare.NBuilder.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
       <Private>True</Private>
@@ -175,11 +183,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\EnumExtensions.cs" />
     <Compile Include="Infraestructure\ConfigurationModel\CategoriaConfig.cs" />
     <Compile Include="Infraestructure\ConfigurationModel\ClienteConfig.cs" />
     <Compile Include="Infraestructure\ConfigurationModel\DepartamentoConfig.cs" />
     <Compile Include="Infraestructure\ConfigurationModel\DocumentoConfig.cs" />
-    <Compile Include="Infraestructure\ConfigurationModel\TecnicoConfig.cs" />
+    <Compile Include="Infraestructure\ConfigurationModel\UsuarioPerfilConfig.cs" />
     <Compile Include="Infraestructure\ConfigurationModel\RolConfig.cs" />
     <Compile Include="Infraestructure\ConfigurationModel\SolicitudConfig.cs" />
     <Compile Include="Infraestructure\ConfigurationModel\SolucionConfig.cs" />
@@ -210,7 +219,7 @@
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Solicitud.cs" />
     <Compile Include="Models\Solucion.cs" />
-    <Compile Include="Models\Tecnico.cs" />
+    <Compile Include="Models\UsuarioPerfil.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\HDContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -238,6 +247,7 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

@@ -15,13 +15,13 @@ namespace HelpDesk.Models
         public DbSet<Solucion> Soluciones { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<Tecnico> Tecnicos { get; set; }
+        public DbSet<UsuarioPerfil> UsuarioPerfiles { get; set; }
 
         public HDContext() //: base("HelpDesk")
         {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<HDContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<HDContext>());
             //Database.SetInitializer(new CreateDatabaseIfNotExists<HDContext>());
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<HDContext>());
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<HDContext>());
         }
 
         public static HDContext Create()
@@ -35,58 +35,25 @@ namespace HelpDesk.Models
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            modelBuilder.Configurations.Add(new CategoriaConfig());
-            modelBuilder.Configurations.Add(new DepartamentoConfig());
-            modelBuilder.Configurations.Add(new DocumentoConfig());
-            modelBuilder.Configurations.Add(new RolConfig());
-            modelBuilder.Configurations.Add(new UsuarioConfig());
-            modelBuilder.Configurations.Add(new TecnicoConfig());
-            modelBuilder.Configurations.Add(new SolucionConfig());
-            modelBuilder.Configurations.Add(new SolicitudConfig());
-            modelBuilder.Configurations.Add(new ClienteConfig());
-
             modelBuilder.Entity<IdentityUserLogin>().HasKey(l => l.UserId);
             modelBuilder.Entity<IdentityRole>().HasKey(r => r.Id);
             modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
 
-            //modelBuilder.Entity<Usuario>()
-            //    .HasMany(r => r.Roles)
-            //    .WithMany(u => u.Usuarios)
-            //    .Map(m =>
-            //    {
-            //        m.ToTable("UsuariosRoles");
-            //        m.MapLeftKey("UsuarioId");
-            //        m.MapRightKey("RolId");
-            //    });
+            modelBuilder.Configurations.Add(new CategoriaConfig());
+            modelBuilder.Configurations.Add(new DepartamentoConfig());
+            modelBuilder.Configurations.Add(new DocumentoConfig());
+            modelBuilder.Configurations.Add(new SolucionConfig());
+            modelBuilder.Configurations.Add(new UsuarioConfig());
+            modelBuilder.Configurations.Add(new RolConfig());
+            modelBuilder.Configurations.Add(new UsuarioPerfilConfig());
+            modelBuilder.Configurations.Add(new SolicitudConfig());
+            modelBuilder.Configurations.Add(new ClienteConfig());
 
-            //modelBuilder.Entity<Usuario>()
-            //    .HasMany(r => r.Departamentos)
-            //    .WithMany(u => u.Usuarios)
-            //    .Map(m =>
-            //    {
-            //        m.ToTable("UsuariosDepartamentos");
-            //        m.MapLeftKey("UsuarioId");
-            //        m.MapRightKey("DepartamentoId");
-            //    });
+            //modelBuilder.Entity<UsuarioPerfil>().HasRequired(u => u.Usuario)
+            //    .WithOptional(t => t.UsuarioPerfil);
 
-            //modelBuilder.Entity<Cliente>()
-            //    .HasMany(d => d.Departamentos)
-            //    .WithMany(c => c.Clientes)
-            //    .Map(m =>
-            //    {
-            //        m.ToTable("ClientesDepartamentos");
-            //        m.MapLeftKey("ClienteId");
-            //        m.MapRightKey("DepartamentoId");
-            //    });
-
-
-
-            /*
-            modelBuilder.Entity<IdentityUser>()
-                .ToTable("Usuarios");
-            modelBuilder.Entity<ApplicationUser>()
-                .ToTable("Usuarios");
-            */
+            modelBuilder.Entity<Usuario>().HasOptional(u => u.UsuarioPerfil)
+                .WithOptionalPrincipal(t => t.Usuario);
         }
     }
 }

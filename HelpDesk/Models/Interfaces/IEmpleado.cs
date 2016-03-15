@@ -2,15 +2,16 @@
 
 namespace HelpDesk.Models.Interfaces
 {
-    interface IEmpleado
+    public abstract class IEmpleado
     {
+        int Id { get; set; }
         string Nombre { get; set; }
         string Apellido { get; set; }
-        string Sexo { get; set; }
+        bool Sexo { get; set; }
         DateTime FechaNacimiento { get; set; }
         string Cedula { get; set; }
         string Telefono { get; set; }
-        int DepartamentoId { get; set; }
+        //int DepartamentoId { get; set; }
         decimal Salario { get; set; }
         int Codigo { get; set; }
         DateTime FechaEntrada { get; set; }

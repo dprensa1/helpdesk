@@ -7,36 +7,36 @@ namespace HelpDesk.Models.Repositorios
 {
     public class RolRepositorio
     {
-        HDContext _RolContext = new HDContext();
+    //    HDContext _RolContext = new HDContext();
 
-        public IEnumerable<Rol> List
-        {
-            get
-            {
-                return _RolContext.Roles;
-            }
-        }
+    //    public IEnumerable<Rol> List
+    //    {
+    //        get
+    //        {
+    //            return _RolContext.Roles;
+    //        }
+    //    }
 
-        public void Add(Rol entity)
-        {
-            throw new NotImplementedException();
-        }
+    //    public void Add(Rol entity)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
 
-        public void Delete(Rol entity)
-        {
-            throw new NotImplementedException();
-        }
+    //    public void Delete(Rol entity)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
 
-        public Rol FindById(int Id)
-        {
-            var resultado = (from r in _RolContext.Roles where r.RolId == Id select r).FirstOrDefault();
+    //    public Rol FindById(int Id)
+    //    {
+    //        var resultado = (from r in _RolContext.Roles where r.RolId == Id select r).FirstOrDefault();
 
-            return resultado;
-        }
+    //        return resultado;
+    //    }
 
-        public void Update(Rol entity)
-        {
-            throw new NotImplementedException();
-        }
+    //    public void Update(Rol entity)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
     }
 }

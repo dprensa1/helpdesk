@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using HelpDesk.Models.Enum;
 using HelpDesk.Models.Interfaces;
+using HelpDesk.Helpers;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HelpDesk.Models
 {
@@ -11,17 +13,30 @@ namespace HelpDesk.Models
         public DateTime Fecha { get; set; }
         public string Asunto { get; set; }
         public string Descripcion { get; set; }
+        
+        public string EstadoString
+        {
+            get { return Estado.ToString(); }
+            private set { Estado = EnumExtensions.ParseEnum<EstadoEnum>(value); }
+        }
+
+        [NotMapped]            
         public EstadoEnum Estado { get; set; }
 
-        public int? ClienteId { get; set; }
-        public int CategoriaId { get; set; }
-        public int UsuarioId { get; set; }
-        public int SolucionId { get; set; }                                     //
+
+        /*
+            public EstadoEnum Estado { get; set; }
+        */
+
+        //public int ClienteId { get; set; }
+        //public int CategoriaId { get; set; }
+        //public int UsuarioId { get; set; }
+        //public int SolucionId { get; set; }   
 
         public virtual Cliente Cliente { get; set; }
         public virtual Categoria Categoria { get; set; }
         public virtual Usuario Usuario { get; set; }
-        public virtual Solucion Solucion { get; set; }                          //
+        public virtual Solucion Solucion { get; set; }
         public virtual ICollection<Documento> Documentos { get; set; }
 
         public DateTime CreadoEn { get; set; }

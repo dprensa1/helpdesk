@@ -1,12 +1,11 @@
-﻿using System;
-using HelpDesk.Models.Interfaces;
-using System.Collections.Generic;
+﻿using HelpDesk.Models.Interfaces;
+using System;
 
 namespace HelpDesk.Models
 {
-    public class Cliente : IEmpleado, IAuditable
+    public class UsuarioPerfil : IEmpleado, IAuditable
     {
-        public int ClienteId { get; set; }
+        public int UsuarioPerfilId { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public bool Sexo { get; set; }
@@ -18,8 +17,8 @@ namespace HelpDesk.Models
         public DateTime FechaEntrada { get; set; }
         public bool Estado { get; set; }
 
+        public virtual Usuario Usuario { get; set; }
         public virtual Departamento Departamento { get; set; }
-        public virtual ICollection<Solicitud> Solicitudes { get; set; }
 
         public DateTime CreadoEn { get; set; }
         public string CreadoPor { get; set; }

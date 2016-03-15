@@ -2,11 +2,13 @@
 {
     public enum TipoUsuarioEnum
     {
+        Admin,
         Cliente,
         Tecnico,
         Supervisor,
         Coordinador,
         Gerente,
-        Director
+        Director,
+        System
     }
 }

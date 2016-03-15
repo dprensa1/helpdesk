@@ -25,6 +25,20 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
                 .HasColumnType("nvarchar")
                 .HasMaxLength(254)
                 .IsRequired();
+
+            Property(c => c.CreadoEn)
+                .HasColumnType("date");
+
+            Property(c => c.CreadoPor)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(16);
+
+            Property(c => c.ModificadoEn)
+                .HasColumnType("date");
+
+            Property(c => c.ModificadoPor)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(16);
         }
     }
 }

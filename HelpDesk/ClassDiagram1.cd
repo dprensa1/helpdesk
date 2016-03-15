@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HelpDesk.Models.Categoria">
+    <Position X="6.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQIAAAAAACAAgAAIAAAAAAAgAAAAAAAAAEA=</HashCode>
+      <FileName>Models\Categoria.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HelpDesk.Models.Cliente" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAEAAAQIAAAIEgDAAgAAIAAAAAAAggAAAAgAAAAg=</HashCode>
+      <FileName>Models\Cliente.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HelpDesk.Models.Departamento" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAIAACAAgIAIBAAAAAAgAABAAAAAAAA=</HashCode>
+      <FileName>Models\Departamento.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HelpDesk.Models.Documento" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIQYAAAAAACAAgAAIAAAAAQAgAAAAAAAAAAQ=</HashCode>
+      <FileName>Models\Documento.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HelpDesk.Models.Rol" HideInheritanceLine="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAACAAgAAJAAAAAAAgAAAAAAAAAhA=</HashCode>
+      <FileName>Models\Rol.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.655" />
+  </Class>
+  <Class Name="HelpDesk.Models.Solicitud" BaseTypeListCollapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQEAAAEgADCAAAAJAoAAAAAgABgEBAAAAEg=</HashCode>
+      <FileName>Models\Solicitud.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HelpDesk.Models.Solucion" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACgAAAIQIAAAAAACAAgAAIAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Solucion.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HelpDesk.Models.Tecnico" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAEAAAQAAAAIEgCAAgAAIAAAAAAEggAAAAgAAAAg=</HashCode>
+      <FileName>Models\Tecnico.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HelpDesk.Models.Usuario" HideInheritanceLine="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAQIAAEAAACAgAAAIAIAAAAAgAAAEAAAAAAg=</HashCode>
+      <FileName>Models\Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.AspNet.Identity.EntityFramework.IdentityRole" Collapsed="true">
+    <Position X="14.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Microsoft.AspNet.Identity.EntityFramework.IdentityUser" Collapsed="true">
+    <Position X="12" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

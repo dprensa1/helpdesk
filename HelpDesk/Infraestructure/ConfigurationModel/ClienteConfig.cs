@@ -26,13 +26,13 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
                 .HasMaxLength(32)
                 .IsRequired();
 
-            Property(c => c.Sexo)
-                .HasColumnType("char")
-                .HasMaxLength(1)
-                .IsRequired();
+            //Property(c => c.Sexo)
+            //    .HasColumnType("nvarchar")
+            //    .HasMaxLength(32)
+            //    .IsRequired();
 
             Property(c => c.FechaNacimiento)
-                .HasColumnType("date2")
+                .HasColumnType("date")
                 .IsRequired();
 
             Property(c => c.Cedula)
@@ -52,16 +52,22 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
             Property(c => c.Codigo);
 
             Property(c => c.FechaEntrada)
-                .HasColumnType("date")          
+                .HasColumnType("date")
                 .IsRequired();
 
-            HasRequired(d => d.Departamento)
-                .WithMany(e => e.Clientes )
-                .HasForeignKey(d => d.DepartamentoId);
+            Property(c => c.CreadoEn)
+                .HasColumnType("date");
 
-            HasMany(s => s.Solicitudes)
-                    .WithRequired(s => s.Cliente)
-                    .HasForeignKey(s => s.SolicitudId);
+            Property(c => c.CreadoPor)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(16);
+
+            Property(c => c.ModificadoEn)
+                .HasColumnType("date");
+
+            Property(c => c.ModificadoPor)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(16);
         }
     }
 }

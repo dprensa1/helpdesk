@@ -12,12 +12,7 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
             HasKey(s => s.SolicitudId);
 
             Property(s => s.Fecha)
-                .HasColumnType("date2")
-                .IsRequired();
-
-            Property(s => s.Asunto)
-                .HasColumnType("nvarchar")
-                .HasMaxLength(32)
+                .HasColumnType("date")
                 .IsRequired();
 
             Property(s => s.Asunto)
@@ -30,34 +25,24 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
                 .HasMaxLength(32)
                 .IsRequired();
 
-            Property(s => s.Estado)
+            Property(s => s.EstadoString)
+                .HasColumnName("Estado")
                 .HasColumnType("nvarchar")
                 .IsRequired();
 
-            HasRequired(c => c.Cliente)
-                .WithMany(s => s.Solicitudes)
-                .HasForeignKey(c => c.ClienteId);
+            Property(c => c.CreadoEn)
+                .HasColumnType("date");
 
-            HasRequired(s => s.Categoria)
-                .WithMany(s => s.Solicitudes)
-                .HasForeignKey(s => s.CategoriaId);
+            Property(c => c.CreadoPor)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(16);
 
-            HasRequired(u => u.Usuario)
-                .WithMany(s => s.Solicitudes)
-                .HasForeignKey(u => u.UsuarioId);
+            Property(c => c.ModificadoEn)
+                .HasColumnType("date");
 
-            HasRequired(s => s.Solucion)
-                    .WithMany(s => s.Solicitudes)
-                    .HasForeignKey(s => s.SolucionId);
-
-            HasMany(d => d.Documentos)
-                .WithMany(s => s.Solicitudes)
-                .Map(sd =>
-                {
-                    sd.MapLeftKey("SolicitudesId");
-                    sd.MapRightKey("DocumentosId");
-                    sd.ToTable("SolicitudesDocumentos");
-                });
+            Property(c => c.ModificadoPor)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(16);
         }
     }
 }

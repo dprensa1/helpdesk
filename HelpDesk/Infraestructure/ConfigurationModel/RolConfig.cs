@@ -9,13 +9,12 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
         {
             ToTable("Roles");
 
-            HasKey(a => a.RolId);
+            //HasKey(a => a.Id);
 
-            Property(a => a.RolId)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
-                .HasColumnName("Id");
+            //Property(a => a.Id)
+            //    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(c => c.Nombre)
+            Property(c => c.Name)
                 .HasColumnType("nvarchar")
                 .HasMaxLength(16)
                 .IsRequired();
@@ -23,6 +22,20 @@ namespace HelpDesk.Infraestructure.ConfigurationModel
             Property(r => r.Descripcion)
                 .HasColumnType("nvarchar")
                 .HasMaxLength(128);
+
+            Property(c => c.CreadoEn)
+                .HasColumnType("date");
+
+            Property(c => c.CreadoPor)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(16);
+
+            Property(c => c.ModificadoEn)
+                .HasColumnType("date");
+
+            Property(c => c.ModificadoPor)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(16);
 
             //HasMany(r => r.Usuarios)
             //    .WithMany(u => u.Rols)

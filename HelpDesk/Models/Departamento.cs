@@ -9,8 +9,9 @@ namespace HelpDesk.Models
         public int DepartamentoId { get; set; }
         public string Nombre { get; set; }
         public string Ubicacion { get; set; }
+
         public virtual ICollection<Cliente> Clientes { get; set; }
-        public virtual ICollection<Tecnico> Tecnicos { get; set; }
+        public virtual ICollection<UsuarioPerfil> UsuarioPerfil { get; set; }
 
         public DateTime CreadoEn { get; set; }
         public string CreadoPor { get; set; }
